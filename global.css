@@ -68,9 +68,12 @@ nav {
   background: white;
   border: 1px solid var(--gl-border);
   border-radius: var(--gl-radius);
-  padding: 0.75rem;
-  min-width: 240px;
-  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  padding: 1rem;
+  min-width: 500px; /* Wider for 2 columns */
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Split into 2 columns */
+  gap: 0.5rem;
+  box-shadow: 0 10px 25px -5px rgb(0 0 0 / 0.1);
   opacity: 0;
   visibility: hidden;
   transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
