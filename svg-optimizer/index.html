@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SVG Optimizer — Easy Resources</title>
+<meta name="description" content="Clean, minify, and optimize SVG files instantly. Reduce file size without losing quality. 100% free and client-side processing.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-content">
+    <a href="../index.html" class="logo">Easy<span>Resources</span></a>
+    
+    <div class="menu-toggle" id="mobileMenuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="nav-links" id="navLinks">
+      <div class="nav-item">
+        <a href="#" class="nav-link">Tools <i data-lucide="chevron-down" class="chevron" style="width: 14px; height: 14px;"></i></a>
+        <div class="dropdown">
+          <a href="../qr-code/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="smartphone"></i></span>
+            <div class="text">
+              <span class="title">QR Generator</span>
+              <span class="desc">Custom high-res codes</span>
+            </div>
+          </a>
+          <a href="../Images%20to%20PDF/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="file-text"></i></span>
+            <div class="text">
+              <span class="title">PDF Converter</span>
+              <span class="desc">Images to PDF instantly</span>
+            </div>
+          </a>
+          <a href="../Image%20Compressor/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="image"></i></span>
+            <div class="text">
+              <span class="title">Image Compressor</span>
+              <span class="desc">Lossless optimization</span>
+            </div>
+          </a>
+          <a href="../lorem-ipsum/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="type"></i></span>
+            <div class="text">
+              <span class="title">Lorem Ipsum</span>
+              <span class="desc">Professional text generator</span>
+            </div>
+          </a>
+          <a href="../json-formatter/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="zap"></i></span>
+            <div class="text">
+              <span class="title">JSON Formatter</span>
+              <span class="desc">Validate & Prettify</span>
+            </div>
+          </a>
+          <a href="../color-palette-generator/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="palette"></i></span>
+            <div class="text">
+              <span class="title">Palette Generator</span>
+              <span class="desc">Design harmonious schemes</span>
+            </div>
+          </a>
+          <a href="../favicon-generator/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="link"></i></span>
+            <div class="text">
+              <span class="title">Favicon Generator</span>
+              <span class="desc">Multi-platform icons</span>
+            </div>
+          </a>
+          <a href="../password-generator/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="lock"></i></span>
+            <div class="text">
+              <span class="title">Password Generator</span>
+              <span class="desc">Secure & Customizable</span>
+            </div>
+          </a>
+          <a href="../image-converter/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="refresh-cw"></i></span>
+            <div class="text">
+              <span class="title">Image Converter</span>
+              <span class="desc">Instant format switching</span>
+            </div>
+          </a>
+          <a href="../barcode-generator/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="bar-chart-3"></i></span>
+            <div class="text">
+              <span class="title">Barcode Generator</span>
+              <span class="desc">Retail & Inventory Codes</span>
+            </div>
+          </a>
+          <a href="../color-palette-extractor/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="brush"></i></span>
+            <div class="text">
+              <span class="title">Palette Extractor</span>
+              <span class="desc">Extract colors from images</span>
+            </div>
+          </a>
+          <a href="index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="ruler"></i></span>
+            <div class="text">
+              <span class="title">SVG Optimizer</span>
+              <span class="desc">Minify & Clean SVGs</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <a href="../about.html" class="nav-link">About</a>
+      <a href="../support.html" class="nav-link">Support</a>
+      <a href="../contact.html" class="nav-link">Contact</a>
+      <a href="../donate.html" class="nav-cta mobile-only">Donate</a>
+    </div>
+    <a href="../donate.html" class="nav-cta desktop-only">Donate</a>
+  </div>
+</nav>
+
+<main class="container main-layout">
+  <div class="tool-header">
+    <div class="badge">Performance Tool</div>
+    <h1>SVG <span>Optimizer</span></h1>
+    <p>Clean up and minify SVG files for faster web performance without losing visual quality. Processing is 100% private and local.</p>
+  </div>
+
+  <div class="optimizer-container">
+    <div class="config-panel">
+      <!-- Upload Zone -->
+      <div class="drop-zone" id="dropZone">
+        <div class="drop-icon"><i data-lucide="file-code"></i></div>
+        <h3>Drop SVG File Here</h3>
+        <p>Or paste SVG code below</p>
+        <input type="file" id="fileInput" accept=".svg" hidden>
+      </div>
+
+      <div class="divider"><span>OR</span></div>
+
+      <div class="form-group" style="flex-grow: 1;">
+        <label for="svgInput">Paste Raw SVG Code</label>
+        <textarea id="svgInput" class="form-input code-input" placeholder="<svg viewBox='0 0 100 100'>...</svg>"></textarea>
+      </div>
+
+      <div class="options-group">
+        <label>Optimization Settings</label>
+        <div class="checkbox-group">
+          <input type="checkbox" id="optComments" checked>
+          <label for="optComments">Remove comments</label>
+        </div>
+        <div class="checkbox-group">
+          <input type="checkbox" id="optXml" checked>
+          <label for="optXml">Remove XML instructions & DOCTYPE</label>
+        </div>
+        <div class="checkbox-group">
+          <input type="checkbox" id="optEmpty" checked>
+          <label for="optEmpty">Remove empty tags</label>
+        </div>
+        <div class="checkbox-group">
+          <input type="checkbox" id="optWhitespace" checked>
+          <label for="optWhitespace">Minify whitespace</label>
+        </div>
+      </div>
+
+      <button id="optimizeBtn" class="btn-primary">
+        <i data-lucide="zap"></i>
+        <span>Optimize SVG</span>
+      </button>
+    </div>
+
+    <div class="results-panel">
+      <div class="preview-header">
+        <h3>Optimized Output</h3>
+        <div class="stats-badge" id="savingsBadge" style="display: none;">Saved 0%</div>
+      </div>
+
+      <div class="code-preview-wrapper">
+        <textarea id="svgOutput" class="form-input code-input output-code" readonly placeholder="Optimized SVG code will appear here..."></textarea>
+      </div>
+
+      <div class="stats-grid" id="statsGrid" style="display: none;">
+        <div class="stat-box">
+          <span class="stat-label">Original Size</span>
+          <span class="stat-value" id="originalSize">0 KB</span>
+        </div>
+        <div class="stat-box highlight">
+          <span class="stat-label">Optimized Size</span>
+          <span class="stat-value" id="optimizedSize">0 KB</span>
+        </div>
+      </div>
+
+      <div class="action-buttons">
+        <button id="copyBtn" class="btn-secondary" disabled>
+          <i data-lucide="copy"></i>
+          <span>Copy Code</span>
+        </button>
+        <button id="downloadBtn" class="btn-primary" disabled>
+          <i data-lucide="download"></i>
+          <span>Download SVG</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo">Easy<span>Resources</span></a>
+        <p>Providing the world with free, professional-grade digital utilities. Part of the Easy Resources suite.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="../qr-code/index.html">QR Generator</a></li>
+          <li><a href="../Images%20to%20PDF/index.html">PDF Converter</a></li>
+          <li><a href="../Image%20Compressor/index.html">Image Compressor</a></li>
+          <li><a href="../lorem-ipsum/index.html">Lorem Ipsum</a></li>
+          <li><a href="../json-formatter/index.html">JSON Formatter</a></li>
+          <li><a href="../color-palette-generator/index.html">Palette Generator</a></li>
+          <li><a href="../favicon-generator/index.html">Favicon Generator</a></li>
+          <li><a href="../password-generator/index.html">Password Generator</a></li>
+          <li><a href="../image-converter/index.html">Image Converter</a></li>
+          <li><a href="../barcode-generator/index.html">Barcode Generator</a></li>
+          <li><a href="../color-palette-extractor/index.html">Palette Extractor</a></li>
+          <li><a href="index.html">SVG Optimizer</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About Us</a></li>
+          <li><a href="../support.html">Support</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Easy Resources. Built for developers & creators.</p>
+      <div class="footer-socials">
+        <a href="#"><i data-lucide="github"></i></a>
+        <a href="#"><i data-lucide="twitter"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div id="toast" class="toast">Action successful!</div>
+
+<script src="js/script.js"></script>
+<script>
+  // Mobile Menu Toggle
+  const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+  const navLinks = document.getElementById('navLinks');
+  
+  if (mobileMenuToggle && navLinks) {
+    mobileMenuToggle.addEventListener('click', () => {
+      mobileMenuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+  }
+
+  // Handle Tool Dropdown on Mobile
+  const navItems = document.querySelectorAll('.nav-item');
+  navItems.forEach(item => {
+    item.addEventListener('click', (e) => {
+      if (window.innerWidth <= 991) {
+        item.classList.toggle('active');
+      }
+    });
+  });
+
+  lucide.createIcons();
+</script>
+</body>
+</html>

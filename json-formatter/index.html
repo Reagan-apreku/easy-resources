@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional JSON Formatter & Validator — Easy Resources</title>
+  <meta name="description" content="Validate, prettify, and minify your JSON data with instant syntax highlighting and error detection. Fast, secure, and completely free.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --bg: #fafafa;
+      --text: #1a1a1a;
+      --text-soft: #666;
+      --accent: #2563eb;
+      --accent-soft: #eff6ff;
+      --card-bg: #ffffff;
+      --border: #e5e7eb;
+      --radius: 20px;
+      --ease: cubic-bezier(0.4, 0, 0.2, 1);
+      --error: #dc2626;
+      --success: #16a34a;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Plus Jakarta Sans', sans-serif; 
+      background-color: var(--bg); 
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+
+    /* Nav */
+    nav {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .nav-content { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.5rem; font-weight: 800; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 2.5rem; }
+    .nav-item { position: relative; }
+    .nav-link { text-decoration: none; color: var(--text-soft); font-size: 0.9375rem; font-weight: 600; transition: color 0.2s; display: flex; align-items: center; gap: 0.35rem; }
+    .nav-link:hover, .nav-link.active { color: var(--text); }
+    
+    .dropdown {
+      position: absolute;
+      top: calc(100% + 1rem);
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.75rem;
+      min-width: 240px;
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s var(--ease);
+    }
+    .nav-item:hover .dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+    .dropdown-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-radius: 8px; transition: background 0.2s; }
+    .dropdown-item:hover { background: var(--bg); }
+    .dropdown-item .title { font-weight: 700; font-size: 0.875rem; display: block; }
+    .dropdown-item .desc { font-size: 0.75rem; color: var(--text-soft); display: block; }
+
+    .nav-cta {
+      padding: 0.7rem 1.5rem;
+      background: var(--text);
+      color: white;
+      text-decoration: none;
+      border-radius: 100px;
+      font-weight: 700;
+      font-size: 0.875rem;
+      transition: all 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    /* Mobile Nav */
+    .mobile-only { display: none; }
+    .desktop-only { display: flex; }
+    
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 1001;
+      transition: var(--ease);
+    }
+    .menu-toggle span {
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+    .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    /* Footer (Synced) */
+    footer { padding: 6rem 0; background: #111; color: white; border-top: 1px solid #333; margin-top: 6rem; }
+    .footer-content { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 4rem; margin-bottom: 4rem; }
+    .footer-brand .logo { color: white; margin-bottom: 1.5rem; text-decoration: none; font-size: 1.5rem; font-weight: 800; display: block; }
+    .footer-brand .logo span { color: var(--accent); }
+    .footer-brand p { color: #999; font-size: 0.9375rem; line-height: 1.6; max-width: 300px; }
+    .footer-col h4 { font-size: 1rem; font-weight: 700; margin-bottom: 1.5rem; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.75rem; }
+    .footer-col ul li a { color: #999; text-decoration: none; font-size: 0.9375rem; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: white; }
+    .footer-bottom { 
+      padding-top: 3rem; 
+      border-top: 1px solid #333; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      color: #666; 
+      font-size: 0.875rem; 
+    }
+    .footer-socials { display: flex; gap: 1.5rem; }
+    .footer-socials a { color: inherit; text-decoration: none; transition: color 0.2s; }
+    .footer-socials a:hover { color: white; }
+
+    @media (max-width: 768px) {
+      .footer-content { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+      .footer-brand { display: flex; flex-direction: column; align-items: center; }
+      .footer-brand p { max-width: 100%; }
+      .footer-bottom { flex-direction: column; gap: 1.5rem; text-align: center; }
+    }
+
+    /* Tool UI */
+    .tool-header { padding: 3rem 0 2rem; text-align: center; }
+    .tool-header h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .tool-header p { color: var(--text-soft); font-size: 1.1rem; }
+
+    .editor-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 4rem; height: 600px; }
+
+    .panel {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+    }
+
+    .panel-header {
+      padding: 1rem 1.5rem;
+      background: #f8fafc;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .panel-title { font-weight: 700; font-size: 0.8rem; text-transform: uppercase; color: #94a3b8; letter-spacing: 0.05em; }
+    
+    .panel-actions { display: flex; gap: 0.5rem; }
+    .action-btn {
+      padding: 0.4rem 0.8rem;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: white;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .action-btn:hover { background: var(--bg); border-color: #cbd5e1; }
+    .action-btn.primary { background: var(--accent); color: white; border: none; }
+    .action-btn.primary:hover { background: #1d4ed8; }
+
+    .editor-container { flex: 1; position: relative; }
+    textarea {
+      width: 100%;
+      height: 100%;
+      border: none;
+      padding: 1.5rem;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.9rem;
+      resize: none;
+      outline: none;
+      color: #334155;
+      background: transparent;
+      line-height: 1.6;
+    }
+
+    /* Error Bar */
+    .status-bar {
+      padding: 0.75rem 1.5rem;
+      font-size: 0.85rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .status-bar.valid { background: #f0fdf4; color: var(--success); border-top: 1px solid #dcfce7; }
+    .status-bar.invalid { background: #fef2f2; color: var(--error); border-top: 1px solid #fee2e2; }
+
+    /* Empty state for output */
+    .empty-placeholder {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #94a3b8;
+    }
+    .empty-placeholder span { font-size: 2rem; display: block; margin-bottom: 0.5rem; }
+
+    @media (max-width: 900px) {
+      .editor-layout { grid-template-columns: 1fr; height: auto; }
+      textarea { height: 400px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-content">
+    <a href="../index.html" class="logo">Easy<span>Resources</span></a>
+    
+    <div class="menu-toggle" id="mobileMenuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="nav-links" id="navLinks">
+      <div class="nav-item">
+        <a href="#" class="nav-link">Tools <i data-lucide="chevron-down" class="chevron" style="width: 14px; height: 14px;"></i></a>
+        <div class="dropdown">
+          <a href="../qr-code/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="smartphone"></i></span>
+            <div class="text">
+              <span class="title">QR Generator</span>
+              <span class="desc">Custom high-res codes</span>
+            </div>
+          </a>
+          <a href="../Images%20to%20PDF/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="file-text"></i></span>
+            <div class="text">
+              <span class="title">PDF Converter</span>
+              <span class="desc">Images to PDF instantly</span>
+            </div>
+          </a>
+          <a href="../Image%20Compressor/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="image"></i></span>
+            <div class="text">
+              <span class="title">Image Compressor</span>
+              <span class="desc">Lossless optimization</span>
+            </div>
+          </a>
+          <a href="../lorem-ipsum/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="type"></i></span>
+            <div class="text">
+              <span class="title">Lorem Ipsum</span>
+              <span class="desc">Professional text generator</span>
+            </div>
+          </a>
+          <a href="../json-formatter/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="zap"></i></span>
+            <div class="text">
+              <span class="title">JSON Formatter</span>
+              <span class="desc">Validate & Prettify</span>
+            </div>
+          </a>
+          <a href="../color-palette-generator/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="palette"></i></span>
+            <div class="text">
+              <span class="title">Palette Generator</span>
+              <span class="desc">Design harmonious schemes</span>
+            </div>
+          </a>
+          <a href="../favicon-generator/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="link"></i></span>
+            <div class="text">
+              <span class="title">Favicon Generator</span>
+              <span class="desc">Multi-platform icons</span>
+            </div>
+          </a>
+          <a href="../password-generator/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="lock"></i></span>
+            <div class="text">
+              <span class="title">Password Generator</span>
+              <span class="desc">Secure & Customizable</span>
+            </div>
+          </a>
+          <a href="../image-converter/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="refresh-cw"></i></span>
+            <div class="text">
+              <span class="title">Image Converter</span>
+              <span class="desc">Instant format switching</span>
+            </div>
+          </a>
+          <a href="../barcode-generator/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="bar-chart-3"></i></span>
+            <div class="text">
+              <span class="title">Barcode Generator</span>
+              <span class="desc">Retail & Inventory Codes</span>
+            </div>
+          </a>
+          <a href="../color-palette-extractor/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="brush"></i></span>
+            <div class="text">
+              <span class="title">Palette Extractor</span>
+              <span class="desc">Extract colors from images</span>
+            </div>
+          </a>
+          <a href="../svg-optimizer/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="ruler"></i></span>
+            <div class="text">
+              <span class="title">SVG Optimizer</span>
+              <span class="desc">Minify & Clean SVGs</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <a href="../about.html" class="nav-link">About</a>
+      <a href="../support.html" class="nav-link">Support</a>
+      <a href="../contact.html" class="nav-link">Contact</a>
+      <a href="../donate.html" class="nav-cta mobile-only">Donate</a>
+    </div>
+    <a href="../donate.html" class="nav-cta desktop-only">Donate</a>
+  </div>
+</nav>
+
+<div class="container">
+  <header class="tool-header">
+    <h1>JSON Formatter</h1>
+    <p>Prettify, minify, and validate your JSON data instantly.</p>
+  </header>
+
+  <div class="editor-layout">
+    <!-- Input Panel -->
+    <section class="panel">
+      <div class="panel-header">
+        <span class="panel-title">Input JSON</span>
+        <div class="panel-actions">
+          <button class="action-btn" id="clearBtn">Clear</button>
+          <button class="action-btn" id="sampleBtn">Load Sample</button>
+        </div>
+      </div>
+      <div class="editor-container">
+        <textarea id="jsonInput" placeholder="Paste your raw JSON here..."></textarea>
+      </div>
+    </section>
+
+    <!-- Output Panel -->
+    <section class="panel">
+      <div class="panel-header">
+        <span class="panel-title">Formatted Result</span>
+        <div class="panel-actions">
+          <select id="indentSize" class="action-btn" style="padding-right: 2rem;">
+            <option value="2">2 Spaces</option>
+            <option value="4">4 Spaces</option>
+            <option value="tab">Tabs</option>
+          </select>
+          <button class="action-btn" id="minifyBtn">Minify</button>
+          <button class="action-btn primary" id="copyBtn">Copy</button>
+        </div>
+      </div>
+      <div class="editor-container">
+        <div id="outputPlaceholder" class="empty-placeholder">
+          <span><i data-lucide="sparkles"></i></span>
+          <p>Results will appear here</p>
+        </div>
+        <textarea id="jsonOutput" readonly></textarea>
+      </div>
+      <div id="statusBar" class="status-bar" style="display: none;"></div>
+    </section>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo">Easy<span>Resources</span></a>
+        <p>Providing the world with free, professional-grade digital utilities. Part of the Easy Resources suite.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="../qr-code/index.html">QR Generator</a></li>
+          <li><a href="../Images%20to%20PDF/index.html">Images to PDF</a></li>
+          <li><a href="../Image%20Compressor/index.html">Image Compressor</a></li>
+          <li><a href="../lorem-ipsum/index.html">Lorem Ipsum</a></li>
+          <li><a href="../json-formatter/index.html">JSON Formatter</a></li>
+          <li><a href="../color-palette-generator/index.html">Palette Generator</a></li>
+          <li><a href="../favicon-generator/index.html">Favicon Generator</a></li>
+          <li><a href="../password-generator/index.html">Password Generator</a></li>
+          <li><a href="../image-converter/index.html">Image Converter</a></li>
+          <li><a href="../barcode-generator/index.html">Barcode Generator</a></li>
+          <li><a href="../color-palette-extractor/index.html">Palette Extractor</a></li>
+          <li><a href="../svg-optimizer/index.html">SVG Optimizer</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About Us</a></li>
+          <li><a href="../support.html">Support</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../donate.html">Donate</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Easy Resources. All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="#">Twitter</a>
+        <a href="#">GitHub</a>
+        <a href="#">Discord</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const jsonInput = document.getElementById('jsonInput');
+  const jsonOutput = document.getElementById('jsonOutput');
+  const outputPlaceholder = document.getElementById('outputPlaceholder');
+  const statusBar = document.getElementById('status-bar');
+  const indentSize = document.getElementById('indentSize');
+
+  function updateStatus(message, isValid) {
+    const bar = document.getElementById('statusBar');
+    bar.style.display = 'flex';
+    bar.className = 'status-bar ' + (isValid ? 'valid' : 'invalid');
+    bar.innerHTML = isValid ? '<i data-lucide="check-circle" style="width: 16px; height: 16px;"></i> Valid JSON' : '<i data-lucide="alert-circle" style="width: 16px; height: 16px;"></i> ' + message;
+    lucide.createIcons();
+  }
+
+  function processJSON(minify = false) {
+    const val = jsonInput.value.trim();
+    if (!val) {
+      jsonOutput.value = "";
+      outputPlaceholder.style.display = 'block';
+      document.getElementById('statusBar').style.display = 'none';
+      return;
+    }
+
+    try {
+      const parsed = JSON.parse(val);
+      outputPlaceholder.style.display = 'none';
+      
+      let space = indentSize.value === 'tab' ? '\t' : parseInt(indentSize.value);
+      if (minify) space = 0;
+
+      jsonOutput.value = JSON.stringify(parsed, null, space);
+      updateStatus("Valid JSON", true);
+    } catch (e) {
+      outputPlaceholder.style.display = 'none';
+      jsonOutput.value = "";
+      updateStatus(e.message, false);
+    }
+  }
+
+  jsonInput.addEventListener('input', () => processJSON());
+  indentSize.addEventListener('change', () => processJSON());
+
+  document.getElementById('minifyBtn').addEventListener('click', () => processJSON(true));
+
+  document.getElementById('clearBtn').addEventListener('click', () => {
+    jsonInput.value = "";
+    processJSON();
+  });
+
+  document.getElementById('sampleBtn').addEventListener('click', () => {
+    jsonInput.value = JSON.stringify({
+      project: "Easy Resources",
+      version: 1.0,
+      active: true,
+      features: ["Format", "Validate", "Minify"],
+      stats: {
+        users: 1000,
+        rating: 4.8
+      }
+    }, null, 2);
+    processJSON();
+  });
+
+  document.getElementById('copyBtn').addEventListener('click', () => {
+    if (!jsonOutput.value) return;
+    navigator.clipboard.writeText(jsonOutput.value).then(() => {
+      const btn = document.getElementById('copyBtn');
+      const originalText = btn.textContent;
+      btn.textContent = "Copied!";
+      setTimeout(() => btn.textContent = originalText, 2000);
+    });
+  });
+
+  // Handle Tab key in textarea
+  jsonInput.addEventListener('keydown', (e) => {
+    if (e.key === 'Tab') {
+      e.preventDefault();
+      const start = jsonInput.selectionStart;
+      const end = jsonInput.selectionEnd;
+      jsonInput.value = jsonInput.value.substring(0, start) + "  " + jsonInput.value.substring(end);
+      jsonInput.selectionStart = jsonInput.selectionEnd = start + 2;
+    }
+  });
+
+  lucide.createIcons();
+</script>
+
+<script>
+  // Mobile Menu Logic
+  const menuToggle = document.getElementById('mobileMenuToggle');
+  const navLinks = document.getElementById('navLinks');
+  const navItems = document.querySelectorAll('.nav-item');
+
+  if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+      document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    });
+  }
+
+  // Mobile Dropdown Toggle
+  navItems.forEach(item => {
+    const link = item.querySelector('.nav-link');
+    link.addEventListener('click', (e) => {
+      if (window.innerWidth <= 991) {
+        e.preventDefault();
+        item.classList.toggle('active');
+      }
+    });
+  });
+
+  // Close menu when clicking links
+  document.querySelectorAll('.nav-links a:not(.nav-link)').forEach(link => {
+    link.addEventListener('click', () => {
+      if (menuToggle) menuToggle.classList.remove('active');
+      if (navLinks) navLinks.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
+
+  lucide.createIcons();
+</script>
+</body>
+</html>

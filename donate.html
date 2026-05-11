@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Support Our Course — Easy Resources</title>
+<meta name="description" content="Support the development of Easy Resources. Your donations help us keep our tools free, private, and high-fidelity for everyone.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  :root {
+    --bg: #fafafa;
+    --text: #1a1a1a;
+    --text-soft: #666;
+    --accent: #2563eb;
+    --accent-soft: #eff6ff;
+    --card-bg: #ffffff;
+    --border: #e5e7eb;
+    --radius: 24px;
+    --container: 1100px;
+    --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { 
+    font-family: 'Plus Jakarta Sans', sans-serif; 
+    background-color: var(--bg); 
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: var(--container); margin: 0 auto; padding: 0 2rem; }  /* Navigation (Synced) */
+  nav {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  .nav-content { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.5rem; font-weight: 800; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
+  .logo span { color: var(--accent); }
+  .nav-links { display: flex; align-items: center; gap: 2.5rem; }
+  .nav-item { position: relative; }
+  .nav-link { text-decoration: none; color: var(--text-soft); font-size: 0.9375rem; font-weight: 600; transition: color 0.2s; display: flex; align-items: center; gap: 0.35rem; }
+  .nav-link:hover, .nav-link.active { color: var(--text); }
+  
+  /* Dropdown (Synced) */
+  .dropdown {
+    position: absolute;
+    top: calc(100% + 1rem);
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0.75rem;
+    min-width: 240px;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s var(--ease);
+  }
+  .nav-item:hover .dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+  .dropdown-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-radius: 8px; transition: background 0.2s; }
+  .dropdown-item:hover { background: var(--bg); }
+  .dropdown-item .icon { font-size: 1.125rem; color: var(--accent); display: flex; align-items: center; }
+  .dropdown-item .title { font-weight: 700; font-size: 0.875rem; display: block; }
+  .dropdown-item .desc { font-size: 0.75rem; color: var(--text-soft); display: block; }
+
+  .nav-cta {
+    padding: 0.7rem 1.5rem;
+    background: var(--text);
+    color: white;
+    text-decoration: none;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 0.875rem;
+    transition: all 0.2s;
+  }
+  .nav-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+
+  /* Mobile Nav */
+  .mobile-only { display: none; }
+  .desktop-only { display: flex; }
+  
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+    transition: var(--ease);
+  }
+  .menu-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+  .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .menu-toggle.active span:nth-child(2) { opacity: 0; }
+  .menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+  @media (max-width: 991px) {
+    .desktop-only { display: none; }
+    .mobile-only { display: flex; }
+    .menu-toggle { display: flex; }
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      height: 100vh;
+      background: white;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      gap: 2rem;
+      transition: 0.4s var(--ease);
+      z-index: 1000;
+    }
+    .nav-links.active { right: 0; }
+    .nav-link { font-size: 1.25rem; }
+    .dropdown {
+      position: static;
+      transform: none !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      box-shadow: none;
+      border: none;
+      padding: 0;
+      height: 0;
+      overflow: hidden;
+      transition: height 0.3s var(--ease);
+      min-width: unset;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .nav-item.active .dropdown { height: auto; padding-top: 1rem; }
+    .nav-item.active .chevron { transform: rotate(180deg); }
+    .chevron { transition: 0.3s; }
+  }
+}
+}
+
+  /* Donate Hero */
+  .donate-hero { padding: 8rem 0 6rem; text-align: center; }
+  .donate-hero h1 { font-size: clamp(3rem, 7vw, 4.5rem); font-weight: 800; letter-spacing: -0.05em; line-height: 1.1; margin-bottom: 2rem; }
+  .donate-hero p { font-size: 1.25rem; color: var(--text-soft); max-width: 800px; margin: 0 auto; font-weight: 500; }
+
+  /* Grid */
+  .donate-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 8rem; }
+  
+  .donate-card {
+    background: white; border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 3rem 2rem; text-align: center; transition: all 0.3s var(--ease);
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .donate-card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.05); }
+  
+  .donate-icon { font-size: 3rem; margin-bottom: 1.5rem; }
+  .donate-card h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem; }
+  .price { font-size: 2.5rem; font-weight: 800; margin-bottom: 1.5rem; color: var(--accent); }
+  .price span { font-size: 1rem; color: var(--text-soft); font-weight: 500; }
+  .donate-card p { font-size: 0.9375rem; color: var(--text-soft); margin-bottom: 2.5rem; flex-grow: 1; }
+
+  .btn-donate {
+    width: 100%; padding: 1rem; border-radius: 100px; background: var(--text); color: white;
+    text-decoration: none; font-weight: 700; transition: opacity 0.2s;
+  }
+  .btn-donate:hover { opacity: 0.9; }
+
+  .donate-card.featured { border: 2px solid var(--accent); position: relative; }
+  .donate-card.featured .badge {
+    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+    background: var(--accent); color: white; padding: 0.25rem 1rem; border-radius: 100px;
+    font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  .donate-card.featured .btn-donate { background: var(--accent); }
+
+  /* Why Donate */
+  .section { padding: 8rem 0; background: white; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+  .section h2 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
+  .section p { color: var(--text-soft); font-size: 1.125rem; margin-bottom: 2rem; }
+
+  /* Footer (Synced) */
+  footer { padding: 6rem 0; background: #111; color: white; border-top: 1px solid #333; }
+  .footer-content { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 4rem; margin-bottom: 4rem; }
+  .footer-brand .logo { color: white; margin-bottom: 1.5rem; }
+  .footer-brand p { color: #999; font-size: 0.9375rem; line-height: 1.6; max-width: 300px; }
+  .footer-col h4 { font-size: 1rem; font-weight: 700; margin-bottom: 1.5rem; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 0.75rem; }
+  .footer-col ul li a { color: #999; text-decoration: none; font-size: 0.9375rem; transition: color 0.2s; }
+  .footer-col ul li a:hover { color: white; }
+  .footer-bottom { 
+    padding-top: 3rem; 
+    border-top: 1px solid #333; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    color: #666; 
+    font-size: 0.875rem; 
+  }
+  .footer-socials { display: flex; gap: 1.5rem; }
+  .footer-socials a { color: inherit; text-decoration: none; transition: color 0.2s; }
+  .footer-socials a:hover { color: white; }
+
+  @media (max-width: 768px) {
+    .footer-content { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+    .footer-brand { display: flex; flex-direction: column; align-items: center; }
+    .footer-brand p { max-width: 100%; }
+    .footer-bottom { flex-direction: column; gap: 1.5rem; text-align: center; }
+  }
+  @media (max-width: 968px) {
+    .donate-grid { grid-template-columns: 1fr; }
+    .grid-2 { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+  }
+</style>
+</head>
+<body>
+<nav>
+  <div class="container nav-content">
+    <a href="index.html" class="logo">Easy<span>Resources</span></a>
+    
+    <div class="menu-toggle" id="mobileMenuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="nav-links" id="navLinks">
+      <div class="nav-item">
+        <a href="#" class="nav-link">Tools <i data-lucide="chevron-down" class="chevron" style="width: 14px; height: 14px;"></i></a>
+        <div class="dropdown">
+          <a href="qr-code/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="smartphone"></i></span>
+            <div class="text">
+              <span class="title">QR Generator</span>
+              <span class="desc">Custom high-res codes</span>
+            </div>
+          </a>
+          <a href="Images%20to%20PDF/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="file-text"></i></span>
+            <div class="text">
+              <span class="title">PDF Converter</span>
+              <span class="desc">Images to PDF instantly</span>
+            </div>
+          </a>
+          <a href="Image%20Compressor/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="image"></i></span>
+            <div class="text">
+              <span class="title">Image Compressor</span>
+              <span class="desc">Lossless optimization</span>
+            </div>
+          </a>
+          <a href="lorem-ipsum/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="type"></i></span>
+            <div class="text">
+              <span class="title">Lorem Ipsum</span>
+              <span class="desc">Professional text generator</span>
+            </div>
+          </a>
+          <a href="json-formatter/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="zap"></i></span>
+            <div class="text">
+              <span class="title">JSON Formatter</span>
+              <span class="desc">Validate & Prettify</span>
+            </div>
+          </a>
+          <a href="color-palette-generator/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="palette"></i></span>
+            <div class="text">
+              <span class="title">Palette Generator</span>
+              <span class="desc">Design harmonious schemes</span>
+            </div>
+          </a>
+          <a href="favicon-generator/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="link"></i></span>
+            <div class="text">
+              <span class="title">Favicon Generator</span>
+              <span class="desc">Multi-platform icons</span>
+            </div>
+          </a>
+          <a href="password-generator/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="lock"></i></span>
+            <div class="text">
+              <span class="title">Password Generator</span>
+              <span class="desc">Secure & Customizable</span>
+            </div>
+          </a>
+          <a href="image-converter/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="refresh-cw"></i></span>
+            <div class="text">
+              <span class="title">Image Converter</span>
+              <span class="desc">Instant format switching</span>
+            </div>
+          </a>
+          <a href="barcode-generator/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="bar-chart-3"></i></span>
+            <div class="text">
+              <span class="title">Barcode Generator</span>
+              <span class="desc">Retail & Inventory Codes</span>
+            </div>
+          </a>
+          <a href="color-palette-extractor/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="brush"></i></span>
+            <div class="text">
+              <span class="title">Palette Extractor</span>
+              <span class="desc">Extract colors from images</span>
+            </div>
+          </a>
+          <a href="svg-optimizer/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="ruler"></i></span>
+            <div class="text">
+              <span class="title">SVG Optimizer</span>
+              <span class="desc">Minify & Clean SVGs</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="support.html" class="nav-link">Support</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="donate.html" class="nav-cta active mobile-only">Donate</a>
+    </div>
+    <a href="donate.html" class="nav-cta active desktop-only">Donate</a>
+  </div>
+</nav>
+
+<section class="donate-hero">
+  <div class="container">
+    <h1>Help us keep high-end tools free for everyone.</h1>
+    <p>Easy Resources is a community-driven project. A combination of minimal, non-intrusive advertisements and community donations allows us to cover server costs and keep the world's most elegant digital utilities free of charge.</p>
+  </div>
+</section>
+
+<div class="container">
+  <div class="donate-grid">
+    <div class="donate-card">
+      <div class="donate-icon">☕</div>
+      <h3>Coffee Support</h3>
+      <div class="price">$5 <span>/ one-time</span></div>
+      <p>A small gesture that goes a long way. This covers our hosting for a single tool for one month.</p>
+      <a href="#" class="btn-donate">Donate $5</a>
+    </div>
+
+    <div class="donate-card featured">
+      <div class="badge">Most Popular</div>
+      <div class="donate-icon">🚀</div>
+      <h3>Power Support</h3>
+      <div class="price">$25 <span>/ one-time</span></div>
+      <p>Serious support for serious tools. Helps us prioritize new feature development and high-res infrastructure.</p>
+      <a href="#" class="btn-donate">Donate $25</a>
+    </div>
+
+    <div class="donate-card">
+      <div class="donate-icon">💎</div>
+      <h3>Patron Support</h3>
+      <div class="price">$100 <span>/ one-time</span></div>
+      <p>Be a visionary supporter. This ensures the platform remains completely free of trackers and invasive ads.</p>
+      <a href="#" class="btn-donate">Donate $100</a>
+    </div>
+  </div>
+</div>
+
+<section class="section">
+  <div class="container">
+    <div class="grid-2">
+      <div>
+        <h2>How we stay sustainable</h2>
+        <p>Unlike most platforms, we don't believe in selling user data or hiding professional features behind "Pro" subscriptions. We want the best tools to be accessible to anyone with an internet connection.</p>
+        <p>To achieve this, we rely on a hybrid sustainability model. Minimal, high-quality advertisements cover our baseline operational costs, while community donations directly fuel the expansion of our toolset and high-resolution infrastructure.</p>
+        <p>Your support goes directly towards:</p>
+        <ul style="list-style: none; color: var(--text-soft); font-size: 1.125rem;">
+          <li style="margin-bottom: 1rem;">✅ High-performance server infrastructure</li>
+          <li style="margin-bottom: 1rem;">✅ Research and development of new tools</li>
+          <li style="margin-bottom: 1rem;">✅ Keeping the site clean and tracker-free</li>
+          <li style="margin-bottom: 1rem;">✅ Maintaining SVG and high-res export capabilities</li>
+        </ul>
+      </div>
+      <div style="background: var(--accent-soft); border-radius: 40px; padding: 4rem; text-align: center;">
+        <div style="font-size: 5rem;">🙏</div>
+        <h3 style="margin-top: 2rem; font-size: 2rem; font-weight: 800;">Thank You.</h3>
+        <p style="margin-top: 1rem; color: var(--text);">Every donation, no matter the size, makes a massive difference in our mission.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">Easy<span>Resources</span></a>
+        <p>Providing the world with free, professional-grade digital utilities. Part of the Easy Resources suite.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="qr-code/index.html">QR Generator</a></li>
+          <li><a href="Images to PDF/index.html">PDF Converter</a></li>
+          <li><a href="Image Compressor/index.html">Image Compressor</a></li>
+          <li><a href="lorem-ipsum/index.html">Lorem Ipsum</a></li>
+          <li><a href="json-formatter/index.html">JSON Formatter</a></li>
+          <li><a href="color-palette-generator/index.html">Palette Generator</a></li>
+          <li><a href="favicon-generator/index.html">Favicon Generator</a></li>
+          <li><a href="password-generator/index.html">Password Generator</a></li>
+          <li><a href="image-converter/index.html">Image Converter</a></li>
+          <li><a href="barcode-generator/index.html">Barcode Generator</a></li>
+          <li><a href="color-palette-extractor/index.html">Palette Extractor</a></li>
+          <li><a href="svg-optimizer/index.html">SVG Optimizer</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="donate.html">Donate</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Easy Resources. All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="#">Twitter</a>
+        <a href="#">GitHub</a>
+        <a href="#">Discord</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile Menu Logic
+  const menuToggle = document.getElementById('mobileMenuToggle');
+  const navLinks = document.getElementById('navLinks');
+  const navItems = document.querySelectorAll('.nav-item');
+
+  if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+      document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    });
+  }
+
+  // Mobile Dropdown Toggle
+  navItems.forEach(item => {
+    const link = item.querySelector('.nav-link');
+    link.addEventListener('click', (e) => {
+      if (window.innerWidth <= 991) {
+        e.preventDefault();
+        item.classList.toggle('active');
+      }
+    });
+  });
+
+  // Close menu when clicking links
+  document.querySelectorAll('.nav-links a:not(.nav-link)').forEach(link => {
+    link.addEventListener('click', () => {
+      if (menuToggle) menuToggle.classList.remove('active');
+      if (navLinks) navLinks.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
+
+  lucide.createIcons();
+</script>
+</body>
+</html>

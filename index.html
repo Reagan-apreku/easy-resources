@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Easy Resources — Free Professional Online Tools for Everyone</title>
+<meta name="description" content="Easy Resources is a premium collection of free online tools. From QR code generation to file conversions, find everything you need in one place. Fast, free, and privacy-focused.">
+<meta name="keywords" content="free online tools, easy resources, qr code generator, developer tools, digital utilities, productivity tools">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<style>
+  :root {
+    --bg: #fafafa;
+    --text: #1a1a1a;
+    --text-soft: #666;
+    --accent: #2563eb;
+    --accent-soft: #eff6ff;
+    --card-bg: #ffffff;
+    --border: #e5e7eb;
+    --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    --radius: 20px;
+    --container: 1400px;
+    --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { 
+    font-family: 'Plus Jakarta Sans', sans-serif; 
+    background-color: var(--bg); 
+    color: var(--text);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container { max-width: var(--container); margin: 0 auto; padding: 0 2rem; }
+
+  /* Navigation */
+  nav {
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  .nav-content { display: flex; justify-content: space-between; align-items: center; }
+  .logo { font-size: 1.5rem; font-weight: 800; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
+  .logo span { color: var(--accent); }
+
+  .nav-links { display: flex; align-items: center; gap: 2.5rem; }
+  .nav-item { position: relative; }
+  .nav-link { 
+    text-decoration: none; 
+    color: var(--text-soft); 
+    font-size: 0.9375rem; 
+    font-weight: 600; 
+    transition: color 0.2s; 
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .nav-link:hover { color: var(--text); }
+  
+  /* Dropdown */
+  .dropdown {
+    position: absolute;
+    top: calc(100% + 1rem);
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0.75rem;
+    min-width: 240px;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s var(--ease);
+  }
+  .nav-item:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    color: var(--text);
+    border-radius: 8px;
+    transition: background 0.2s;
+  }
+  .dropdown-item:hover { background: var(--bg); }
+  .dropdown-item .icon { font-size: 1.125rem; }
+  .dropdown-item .text { display: flex; flex-direction: column; }
+  .dropdown-item .title { font-weight: 700; font-size: 0.875rem; }
+  .dropdown-item .desc { font-size: 0.75rem; color: var(--text-soft); font-weight: 400; }
+
+  .nav-cta {
+    padding: 0.7rem 1.5rem;
+    background: var(--text);
+    color: white;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 700;
+    transition: all 0.2s var(--ease);
+  }
+  .nav-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+
+  /* Hero */
+  .hero {
+    padding: 8rem 0 5rem;
+    text-align: center;
+    background: radial-gradient(circle at 50% -20%, #dbeafe 0%, #fafafa 60%);
+  }
+  .hero h1 { 
+    font-size: clamp(3rem, 8vw, 4.5rem); 
+    font-weight: 800; 
+    letter-spacing: -0.05em; 
+    line-height: 1.05; 
+    margin-bottom: 1.5rem; 
+    background: linear-gradient(180deg, #1a1a1a 0%, #4a4a4a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .hero p { font-size: 1.25rem; color: var(--text-soft); max-width: 650px; margin: 0 auto 3.5rem; font-weight: 500; }
+
+  /* Search Bar */
+  .search-wrapper { 
+    max-width: 640px; 
+    margin: 0 auto 4rem; 
+    position: relative; 
+    transform: translateY(0);
+    transition: transform 0.3s var(--ease);
+  }
+  .search-wrapper:focus-within { transform: translateY(-2px); }
+  .search-input {
+    width: 100%;
+    padding: 1.5rem 1.5rem 1.5rem 4rem;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    background: white;
+    font-size: 1.125rem;
+    font-weight: 500;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.05), 0 8px 10px -6px rgb(0 0 0 / 0.05);
+    transition: all 0.3s var(--ease);
+  }
+  .search-input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft), 0 20px 25px -5px rgb(0 0 0 / 0.1); }
+  .search-icon { 
+    position: absolute; 
+    left: 1.75rem; 
+    top: 50%; 
+    transform: translateY(-50%); 
+    font-size: 1.25rem;
+    color: var(--text-soft); 
+  }
+
+  /* Grid Layout */
+  .section-title { font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); margin-bottom: 2.5rem; text-align: center; }
+  .tool-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 8rem;
+  }
+  
+  @media (max-width: 1200px) {
+    .tool-grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (max-width: 900px) {
+    .tool-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .tool-grid { grid-template-columns: 1fr; }
+  }
+  
+  .tool-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 2.5rem;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.4s var(--ease);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+  .tool-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; height: 4px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s var(--ease);
+  }
+  .tool-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: transparent;
+  }
+  .tool-card:hover::before { transform: scaleX(1); }
+
+  .tool-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--accent-soft);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.75rem;
+    margin-bottom: 2rem;
+    color: var(--accent);
+  }
+  .tool-card h3 { font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; letter-spacing: -0.02em; }
+  .tool-card p { color: var(--text-soft); font-size: 1.0625rem; line-height: 1.6; margin-bottom: 2rem; flex-grow: 1; }
+  
+  .tool-action {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    font-size: 0.9375rem;
+    color: var(--accent);
+    transition: gap 0.3s var(--ease);
+  }
+  .tool-card:hover .tool-action { gap: 0.75rem; }
+
+  .badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    padding: 0.375rem 0.875rem;
+    background: #fdf2f8;
+    color: #db2777;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  /* Ads */
+  .ad-container {
+    padding: 3rem;
+    background: #f8fafc;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    text-align: center;
+    margin-bottom: 8rem;
+  }
+  .ad-label { font-size: 0.75rem; font-weight: 600; color: #94a3b8; text-transform: uppercase; margin-bottom: 1.5rem; }
+  .ad-placeholder { 
+    max-width: 728px; 
+    height: 90px; 
+    background: #fff; 
+    border: 1px dashed #cbd5e1; 
+    margin: 0 auto; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+    color: #64748b;
+    font-weight: 500;
+  }
+
+  /* Footer */
+  footer {
+    padding: 6rem 0;
+    background: #111;
+    color: white;
+  }
+  .footer-content { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 4rem; margin-bottom: 4rem; }
+  .footer-brand .logo { color: white; margin-bottom: 1.5rem; }
+  .footer-brand p { color: #999; font-size: 0.9375rem; line-height: 1.6; max-width: 300px; }
+  .footer-col h4 { font-size: 1rem; font-weight: 700; margin-bottom: 1.5rem; }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 0.75rem; }
+  .footer-col ul li a { color: #999; text-decoration: none; font-size: 0.9375rem; transition: color 0.2s; }
+  .footer-col ul li a:hover { color: white; }
+  
+  .footer-bottom { 
+    padding-top: 3rem; 
+    border-top: 1px solid #333; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    color: #666; 
+    font-size: 0.875rem; 
+  }
+  .footer-socials { display: flex; gap: 1.5rem; }
+  .footer-socials a { color: inherit; text-decoration: none; transition: color 0.2s; }
+  .footer-socials a:hover { color: white; }
+
+  @media (max-width: 768px) {
+    .footer-content { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+    .footer-brand { display: flex; flex-direction: column; align-items: center; }
+    .footer-brand p { max-width: 100%; }
+    .footer-bottom { flex-direction: column; gap: 1.5rem; text-align: center; }
+  }
+
+  .mobile-only { display: none; }
+  
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+    transition: var(--ease);
+  }
+  .menu-toggle span {
+    width: 24px;
+    height: 2px;
+    background: var(--text);
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+  
+  /* Menu Toggle Animation */
+  .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .menu-toggle.active span:nth-child(2) { opacity: 0; }
+  .menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+  @media (max-width: 1024px) {
+    .footer-content { grid-template-columns: repeat(2, 1fr); gap: 3rem; }
+  }
+
+  @media (max-width: 991px) {
+    .desktop-only { display: none; }
+    .mobile-only { display: flex; }
+    
+    .menu-toggle { display: flex; }
+    
+    .nav-links {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      height: 100vh;
+      background: white;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      gap: 2rem;
+      transition: 0.4s var(--ease);
+      z-index: 1000;
+    }
+    
+    .nav-links.active { right: 0; }
+    
+    .nav-link { font-size: 1.25rem; }
+    
+    .dropdown {
+      position: static;
+      transform: none !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+      box-shadow: none;
+      border: none;
+      padding: 0;
+      height: 0;
+      overflow: hidden;
+      transition: height 0.3s var(--ease);
+      min-width: unset;
+      width: 100%;
+    }
+    
+    .nav-item.active .dropdown { height: auto; padding-top: 1rem; }
+    .nav-item.active .chevron { transform: rotate(180deg); }
+    .chevron { transition: 0.3s; }
+  }
+
+  @media (max-width: 640px) {
+    .hero { padding: 6rem 0 3rem; }
+    .hero h1 { font-size: 2.75rem; }
+    .tool-grid { grid-template-columns: 1fr; }
+    .footer-content { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-content">
+    <a href="index.html" class="logo">Easy<span>Resources</span></a>
+    
+    <div class="menu-toggle" id="mobileMenuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="nav-links" id="navLinks">
+      <div class="nav-item">
+        <a href="#" class="nav-link">Tools <i data-lucide="chevron-down" style="width: 14px; height: 14px;"></i></a>
+        <div class="dropdown">
+          <a href="qr-code/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="smartphone"></i></span>
+            <div class="text">
+              <span class="title">QR Generator</span>
+              <span class="desc">Custom high-res codes</span>
+            </div>
+          </a>
+          <a href="Images%20to%20PDF/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="file-text"></i></span>
+            <div class="text">
+              <span class="title">PDF Converter</span>
+              <span class="desc">Images to PDF instantly</span>
+            </div>
+          </a>
+          <a href="Image%20Compressor/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="image"></i></span>
+            <div class="text">
+              <span class="title">Image Compressor</span>
+              <span class="desc">Lossless optimization</span>
+            </div>
+          </a>
+          <a href="lorem-ipsum/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="type"></i></span>
+            <div class="text">
+              <span class="title">Lorem Ipsum</span>
+              <span class="desc">Professional text generator</span>
+            </div>
+          </a>
+          <a href="json-formatter/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="zap"></i></span>
+            <div class="text">
+              <span class="title">JSON Formatter</span>
+              <span class="desc">Validate and prettify data</span>
+            </div>
+          </a>
+          <a href="color-palette-generator/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="palette"></i></span>
+            <div class="text">
+              <span class="title">Palette Generator</span>
+              <span class="desc">Design harmonious schemes</span>
+            </div>
+          </a>
+          <a href="favicon-generator/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="link"></i></span>
+            <div class="text">
+              <span class="title">Favicon Generator</span>
+              <span class="desc">Multi-platform icons</span>
+            </div>
+          </a>
+          <a href="password-generator/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="lock"></i></span>
+            <div class="text">
+              <span class="title">Password Generator</span>
+              <span class="desc">Secure & Customizable</span>
+            </div>
+          </a>
+          <a href="image-converter/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="refresh-cw"></i></span>
+            <div class="text">
+              <span class="title">Image Converter</span>
+              <span class="desc">Instant format switching</span>
+            </div>
+          </a>
+          <a href="barcode-generator/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="bar-chart-3"></i></span>
+            <div class="text">
+              <span class="title">Barcode Generator</span>
+              <span class="desc">Retail & Inventory Codes</span>
+            </div>
+          </a>
+          <a href="color-palette-extractor/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="brush"></i></span>
+            <div class="text">
+              <span class="title">Palette Extractor</span>
+              <span class="desc">Extract colors from images</span>
+            </div>
+          </a>
+          <a href="svg-optimizer/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="ruler"></i></span>
+            <div class="text">
+              <span class="title">SVG Optimizer</span>
+              <span class="desc">Minify & Clean SVGs</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="support.html" class="nav-link">Support</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <a href="donate.html" class="nav-cta mobile-only">Donate</a>
+    </div>
+
+    <a href="donate.html" class="nav-cta desktop-only">Donate</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <h1>Supercharge your<br>digital workflow.</h1>
+    <p>A curated collection of professional online tools designed to be fast, secure, and completely free. No credit card, no account, just results.</p>
+    
+    <div class="search-wrapper">
+      <span class="search-icon"><i data-lucide="search" style="width: 20px; height: 20px;"></i></span>
+      <input type="text" id="toolSearch" class="search-input" placeholder="Search 50+ professional tools...">
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="section-title">Available Tools</div>
+  <div class="tool-grid">
+    <!-- Active Tools -->
+    <a href="qr-code/index.html" class="tool-card">
+      <div class="badge">Trending</div>
+      <div class="tool-icon"><i data-lucide="smartphone"></i></div>
+      <h3>QR Code Generator</h3>
+      <p>Generate professional, high-resolution QR codes with custom branding, logos, and transparent backgrounds. Export in SVG or PNG.</p>
+      <div class="tool-action">Launch Tool &rarr;</div>
+    </a>
+
+    <a href="Images%20to%20PDF/index.html" class="tool-card">
+      <div class="tool-icon"><i data-lucide="file-text"></i></div>
+      <h3>Images to PDF</h3>
+      <p>Convert your photos and images into a single, professional PDF document instantly.</p>
+      <div class="tool-action">Convert Now <span>→</span></div>
+    </a>
+    
+    <a href="Image%20Compressor/index.html" class="tool-card">
+      <div class="tool-icon"><i data-lucide="image"></i></div>
+      <h3>Image Compressor</h3>
+      <p>Reduce image file size without losing quality. Perfect for websites and emails.</p>
+      <div class="tool-action">Compress Now <span>→</span></div>
+    </a>
+
+    <a href="lorem-ipsum/index.html" class="tool-card">
+      <div class="tool-icon"><i data-lucide="type"></i></div>
+      <h3>Lorem Ipsum Generator</h3>
+      <p>Generate placeholder text in various lengths and formats for your design projects.</p>
+      <div class="tool-action">Generate Text <span>→</span></div>
+    </a>
+
+    <a href="json-formatter/index.html" class="tool-card">
+      <div class="tool-icon"><i data-lucide="zap"></i></div>
+      <h3>JSON Formatter</h3>
+      <p>Validate, prettify, and minify JSON data with instant syntax highlighting and error detection.</p>
+      <div class="tool-action">Format JSON <span>→</span></div>
+    </a>
+
+    <a href="color-palette-generator/index.html" class="tool-card">
+      <div class="tool-icon"><i data-lucide="palette"></i></div>
+      <h3>Color Palette Generator</h3>
+      <p>Create harmonious color schemes using AI-powered color theory and trending palettes.</p>
+      <div class="tool-action">Generate Palette <span>→</span></div>
+    </a>
+
+    <a href="favicon-generator/index.html" class="tool-card">
+      <div class="tool-icon"><i data-lucide="link"></i></div>
+      <h3>Favicon Generator</h3>
+      <p>Generate perfect favicons for all platforms and browsers from a single image upload. Fast, local, and private.</p>
+      <div class="tool-action">Generate Icons <span>→</span></div>
+    </a>
+
+    <a href="password-generator/index.html" class="tool-card">
+      <div class="tool-icon"><i data-lucide="lock"></i></div>
+      <h3>Password Generator</h3>
+      <p>Create cryptographically secure, customizable passwords with real-time strength analysis. 100% private.</p>
+      <div class="tool-action">Secure Now <span>→</span></div>
+    </a>
+
+    <a href="image-converter/index.html" class="tool-card">
+      <div class="tool-icon"><i data-lucide="refresh-cw"></i></div>
+      <h3>Image Format Converter</h3>
+      <p>Instantly convert images between PNG, JPG, WebP, and SVG formats with zero quality loss.</p>
+      <div class="tool-action">Convert Now <span>→</span></div>
+    </a>
+
+    <a href="barcode-generator/index.html" class="tool-card">
+      <div class="tool-icon"><i data-lucide="bar-chart-3"></i></div>
+      <h3>Barcode Generator</h3>
+      <p>Create standard barcodes (EAN, UPC, Code 128) for retail and inventory management.</p>
+      <div class="tool-action">Generate Barcode <span>→</span></div>
+    </a>
+
+    <a href="color-palette-extractor/index.html" class="tool-card">
+      <div class="tool-icon"><i data-lucide="brush"></i></div>
+      <h3>Color Palette Extractor</h3>
+      <p>Upload an image to automatically extract its dominant color palette and hex codes.</p>
+      <div class="tool-action">Extract Palette <span>→</span></div>
+    </a>
+
+    <a href="svg-optimizer/index.html" class="tool-card">
+      <div class="tool-icon"><i data-lucide="ruler"></i></div>
+      <h3>SVG Optimizer</h3>
+      <p>Clean and minify SVG files for faster web performance without losing any visual quality.</p>
+      <div class="tool-action">Optimize SVG <span>→</span></div>
+    </a>
+
+    <!-- Coming Soon Tools -->
+    <a href="#" class="tool-card" style="pointer-events: none;">
+      <div class="tool-icon" style="background: #f1f5f9; color: #64748b;"><i data-lucide="wand-2"></i></div>
+      <h3 style="color: #64748b;">Background Remover</h3>
+      <p style="color: #94a3b8;">Remove image backgrounds in seconds using professional AI. 100% private and free.</p>
+      <div class="tool-action" style="color: #94a3b8;">Coming Soon</div>
+    </a>
+
+    <a href="#" class="tool-card" style="pointer-events: none;">
+      <div class="tool-icon" style="background: #f1f5f9; color: #64748b;"><i data-lucide="code-2"></i></div>
+      <h3 style="color: #64748b;">Code to Image Builder</h3>
+      <p style="color: #94a3b8;">Turn your raw code into beautiful, customizable, shareable images with syntax highlighting.</p>
+      <div class="tool-action" style="color: #94a3b8;">Coming Soon</div>
+    </a>
+
+    <a href="#" class="tool-card" style="pointer-events: none;">
+      <div class="tool-icon" style="background: #f1f5f9; color: #64748b;"><i data-lucide="file-edit"></i></div>
+      <h3 style="color: #64748b;">Markdown Editor</h3>
+      <p style="color: #94a3b8;">Real-time Markdown to HTML converter with instant visual preview and export.</p>
+      <div class="tool-action" style="color: #94a3b8;">Coming Soon</div>
+    </a>
+
+    <a href="#" class="tool-card" style="pointer-events: none;">
+      <div class="tool-icon" style="background: #f1f5f9; color: #64748b;"><i data-lucide="binary"></i></div>
+      <h3 style="color: #64748b;">Base64 Converter</h3>
+      <p style="color: #94a3b8;">Safely encode and decode strings, files, and images to and from Base64 formats locally.</p>
+      <div class="tool-action" style="color: #94a3b8;">Coming Soon</div>
+    </a>
+
+    <a href="#" class="tool-card" style="pointer-events: none;">
+      <div class="tool-icon" style="background: #f1f5f9; color: #64748b;"><i data-lucide="droplets"></i></div>
+      <h3 style="color: #64748b;">CSS Gradient Builder</h3>
+      <p style="color: #94a3b8;">Visually design complex, responsive CSS gradients and copy the raw code instantly.</p>
+      <div class="tool-action" style="color: #94a3b8;">Coming Soon</div>
+    </a>
+
+    <a href="#" class="tool-card" style="pointer-events: none;">
+      <div class="tool-icon" style="background: #f1f5f9; color: #64748b;"><i data-lucide="arrow-left-right"></i></div>
+      <h3 style="color: #64748b;">Universal Unit Converter</h3>
+      <p style="color: #94a3b8;">Instantly convert length (feet to meters), weight, volume, and temperature locally.</p>
+      <div class="tool-action" style="color: #94a3b8;">Coming Soon</div>
+    </a>
+
+    <a href="#" class="tool-card" style="pointer-events: none;">
+      <div class="tool-icon" style="background: #f1f5f9; color: #64748b;"><i data-lucide="scaling"></i></div>
+      <h3 style="color: #64748b;">Aspect Ratio Calculator</h3>
+      <p style="color: #94a3b8;">Calculate exact image dimensions and proportions for web design and social media.</p>
+      <div class="tool-action" style="color: #94a3b8;">Coming Soon</div>
+    </a>
+  </div>
+
+  <div id="noResults" style="display: none; text-align: center; padding: 4rem 2rem; background: #fff; border-radius: 20px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); margin-bottom: 2rem;">
+    <div style="font-size: 3rem; margin-bottom: 1rem;"><i data-lucide="search-x" style="width: 48px; height: 48px; margin: 0 auto;"></i></div>
+    <h3 style="font-size: 1.5rem; color: var(--text); margin-bottom: 0.5rem;">No tools found</h3>
+    <p style="color: var(--text-light);">Try searching for something else or browse our categories.</p>
+    <button onclick="document.getElementById('toolSearch').value=''; document.getElementById('toolSearch').dispatchEvent(new Event('input'));" style="margin-top: 1.5rem; background: var(--accent); color: white; border: none; padding: 0.75rem 1.5rem; border-radius: 10px; cursor: pointer; font-weight: 600;">Clear Search</button>
+  </div>
+
+  <div class="ad-container">
+    <div class="ad-label">Sponsor</div>
+    <div class="ad-placeholder">Leaderboard Ad Slot (728x90)</div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">Easy<span>Resources</span></a>
+        <p>Providing the world with free, professional-grade digital utilities. Part of the Easy Resources suite.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="qr-code/index.html">QR Generator</a></li>
+          <li><a href="Images to PDF/index.html">Images to PDF</a></li>
+          <li><a href="Image Compressor/index.html">Image Compressor</a></li>
+          <li><a href="lorem-ipsum/index.html">Lorem Ipsum</a></li>
+          <li><a href="json-formatter/index.html">JSON Formatter</a></li>
+          <li><a href="color-palette-generator/index.html">Palette Generator</a></li>
+          <li><a href="favicon-generator/index.html">Favicon Generator</a></li>
+          <li><a href="password-generator/index.html">Password Generator</a></li>
+          <li><a href="image-converter/index.html">Image Converter</a></li>
+          <li><a href="barcode-generator/index.html">Barcode Generator</a></li>
+          <li><a href="color-palette-extractor/index.html">Palette Extractor</a></li>
+          <li><a href="svg-optimizer/index.html">SVG Optimizer</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="donate.html">Donate</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Easy Resources. All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="#">Twitter</a>
+        <a href="#">GitHub</a>
+        <a href="#">Discord</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('toolSearch');
+    const toolCards = document.querySelectorAll('.tool-card');
+    const noResults = document.getElementById('noResults');
+    const sectionTitle = document.querySelector('.section-title');
+    const toolGrid = document.querySelector('.tool-grid');
+
+    searchInput.addEventListener('input', (e) => {
+      const query = e.target.value.toLowerCase().trim();
+      let visibleCount = 0;
+
+      toolCards.forEach(card => {
+        const title = card.querySelector('h3').textContent.toLowerCase();
+        const desc = card.querySelector('p').textContent.toLowerCase();
+        
+        if (title.includes(query) || desc.includes(query)) {
+          card.style.display = 'flex';
+          visibleCount++;
+        } else {
+          card.style.display = 'none';
+        }
+      });
+
+      // Toggle No Results view
+      if (visibleCount === 0) {
+        noResults.style.display = 'block';
+        toolGrid.style.display = 'none';
+        if(sectionTitle) sectionTitle.textContent = `No results for "${e.target.value}"`;
+      } else {
+        noResults.style.display = 'none';
+        toolGrid.style.display = 'grid';
+        if(sectionTitle) sectionTitle.textContent = query ? `Search results (${visibleCount})` : 'Available Tools';
+      }
+    });
+
+    // Mobile Menu Logic
+    const menuToggle = document.getElementById('mobileMenuToggle');
+    const navLinks = document.getElementById('navLinks');
+    const navItems = document.querySelectorAll('.nav-item');
+
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+      document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    });
+
+    // Mobile Dropdown Toggle
+    navItems.forEach(item => {
+      const link = item.querySelector('.nav-link');
+      link.addEventListener('click', (e) => {
+        if (window.innerWidth <= 991) {
+          e.preventDefault();
+          item.classList.toggle('active');
+        }
+      });
+    });
+
+    // Close menu when clicking links
+    document.querySelectorAll('.nav-links a:not(.nav-link)').forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        navLinks.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
+    lucide.createIcons();
+  });
+</script>
+
+
+</body>
+</html>
+

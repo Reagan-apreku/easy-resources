@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR Code Generator — Easy Resources</title>
+<meta name="description" content="Create professional, high-resolution QR codes for free with Easy Resources. Customize colors, add logos, and download in PNG, SVG, or WebP. No watermark, no signup required. Part of the Easy Resources suite of professional tools.">
+<meta name="keywords" content="QR code generator, Easy Resources, free QR code, custom QR code, QR code with logo, professional QR codes">
+<meta property="og:title" content="QR Code Generator — Easy Resources">
+<meta property="og:description" content="Generate custom high-resolution QR codes with logos and branding. Free, fast, and part of the Easy Resources tool suite.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="assets/og-preview.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://quikqr.io">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="css/main.css">
+<style>
+  .section-header { max-width: 100% !important; }
+  .heading-lg { 
+    font-size: clamp(1.5rem, 2.3vw, 2.5rem) !important; 
+    white-space: nowrap !important;
+    letter-spacing: -0.025em !important;
+  }
+  @media (max-width: 1023px) {
+    .heading-lg { white-space: normal !important; }
+  }
+
+  /* Global Nav Dropdown Overrides for consistency */
+  .logo span { color: var(--accent); }
+  .nav-item { position: relative; }
+  .nav-link { 
+    text-decoration: none; 
+    color: var(--text-secondary); 
+    font-size: 0.875rem; 
+    font-weight: 600; 
+    transition: color 0.2s; 
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .nav-link:hover { color: var(--text-primary); }
+  
+  .dropdown {
+    position: absolute;
+    top: calc(100% + 1rem);
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 0.5rem;
+    min-width: 240px;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+  }
+  .nav-item:hover .dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+  .dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.625rem 1rem;
+    text-decoration: none;
+    color: var(--text-primary);
+    border-radius: 8px;
+    transition: background 0.2s;
+    text-align: left;
+  }
+  .dropdown-item:hover { background: var(--bg-secondary); }
+  .dropdown-item .icon { font-size: 1.125rem; display: flex; align-items: center; }
+  .dropdown-item .text { display: flex; flex-direction: column; }
+  .dropdown-item .title { font-weight: 700; font-size: 0.8125rem; line-height: 1.2; }
+  .dropdown-item .desc { font-size: 0.6875rem; color: var(--text-muted); font-weight: 400; line-height: 1.2; }
+  
+  .header-cta {
+    padding: 0.5rem 1.25rem;
+    background: var(--text-primary);
+    color: white;
+    border-radius: 100px;
+    text-decoration: none;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    transition: all 0.2s;
+  }
+  .header-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+
+  /* Mobile Nav */
+  .mobile-only { display: none; }
+  .desktop-only { display: flex; }
+  
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+    transition: 0.3s;
+  }
+  .menu-toggle span {
+    width: 22px;
+    height: 2px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    transition: 0.3s;
+  }
+  .menu-toggle.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .menu-toggle.active span:nth-child(2) { opacity: 0; }
+  .menu-toggle.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* Nav */
+    nav {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .nav-content { display: flex; justify-content: space-between; align-items: center; max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
+    .logo { font-size: 1.5rem; font-weight: 800; color: var(--text-primary); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; font-family: 'Manrope', sans-serif; }
+    .logo span { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 2.5rem; }
+    .nav-item { position: relative; }
+    .nav-link { text-decoration: none; color: var(--text-secondary); font-size: 0.9375rem; font-weight: 600; transition: color 0.2s; display: flex; align-items: center; gap: 0.35rem; }
+    .nav-link:hover, .nav-link.active { color: var(--text-primary); }
+    
+    .dropdown {
+      position: absolute;
+      top: calc(100% + 1rem);
+      left: 50%;
+      transform: translateX(-50%) translateY(10px);
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.75rem;
+      min-width: 240px;
+      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .nav-item .chevron { transition: transform 0.3s; }
+    .nav-item:hover .chevron { transform: rotate(180deg); }
+    .nav-item:hover .dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+    .dropdown-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; text-decoration: none; color: var(--text-primary); border-radius: 8px; transition: background 0.2s; }
+    .dropdown-item:hover { background: var(--bg-secondary); }
+    .dropdown-item .icon { font-size: 1.125rem; color: var(--accent); display: flex; align-items: center; }
+    .dropdown-item .text { display: flex; flex-direction: column; }
+    .dropdown-item .title { font-weight: 700; font-size: 0.875rem; display: block; color: var(--text-primary); }
+    .dropdown-item .desc { font-size: 0.75rem; color: var(--text-secondary); display: block; font-weight: 400; }
+
+    .nav-cta {
+      padding: 0.7rem 1.5rem;
+      background: var(--text-primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 100px;
+      font-weight: 700;
+      font-size: 0.875rem;
+      transition: all 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    /* Mobile Nav */
+    .mobile-only { display: none; }
+    .desktop-only { display: flex; }
+    
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 6px;
+      cursor: pointer;
+      padding: 0.5rem;
+      z-index: 1001;
+      transition: cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .menu-toggle span {
+      width: 24px;
+      height: 2px;
+      background: var(--text-primary);
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+    .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .menu-toggle.active span:nth-child(2) { opacity: 0; }
+    .menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    /* Footer (Synced) */
+    footer { padding: 6rem 0; background: #111; color: white; border-top: 1px solid #333; }
+    .footer-content { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 4rem; margin-bottom: 4rem; }
+    .footer-brand .logo { color: white; margin-bottom: 1.5rem; }
+    .footer-brand p { color: #999; font-size: 0.9375rem; line-height: 1.6; max-width: 300px; }
+    .footer-col h4 { font-size: 1rem; font-weight: 700; margin-bottom: 1.5rem; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 0.75rem; }
+    .footer-col ul li a { color: #999; text-decoration: none; font-size: 0.9375rem; transition: color 0.2s; }
+    .footer-col ul li a:hover { color: white; }
+    .footer-bottom { 
+      padding-top: 3rem; 
+      border-top: 1px solid #333; 
+      display: flex; 
+      justify-content: space-between; 
+      align-items: center; 
+      color: #666; 
+      font-size: 0.875rem; 
+    }
+    .footer-socials { display: flex; gap: 1.5rem; }
+    .footer-socials a { color: inherit; text-decoration: none; transition: color 0.2s; }
+    .footer-socials a:hover { color: white; }
+
+    @media (max-width: 768px) {
+      .footer-content { grid-template-columns: 1fr; gap: 2.5rem; text-align: center; }
+      .footer-brand { display: flex; flex-direction: column; align-items: center; }
+      .footer-brand p { max-width: 100%; }
+      .footer-bottom { flex-direction: column; gap: 1.5rem; text-align: center; }
+    }
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Quik QR Generator","url":"https://quikqr.io","description":"The fastest free professional QR code generator with logo support, custom colors, and transparent background exports.","applicationCategory":"UtilityApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"featureList":["URL QR codes","WiFi QR codes","vCard QR codes","Logo embedding","Custom colors","SVG export","Transparent backgrounds","High resolution downloads"]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"What is a QR code?","acceptedAnswer":{"@type":"Answer","text":"A QR (Quick Response) code is a two-dimensional barcode that stores information like URLs, text, contact details, or WiFi credentials. It can be scanned by any smartphone camera to instantly access the encoded information."}},
+{"@type":"Question","name":"How do I create a custom QR code?","acceptedAnswer":{"@type":"Answer","text":"Select a QR code type, enter your data, customize colors and style, optionally add your logo, then download in your preferred format. The entire process takes under 30 seconds."}},
+{"@type":"Question","name":"Can I add my logo to a QR code?","acceptedAnswer":{"@type":"Answer","text":"Yes! Upload any logo or image and it will be embedded in the center of your QR code. We automatically increase error correction to ensure the code remains scannable."}},
+{"@type":"Question","name":"What file format should I use?","acceptedAnswer":{"@type":"Answer","text":"SVG is best for print materials as it scales infinitely without quality loss. PNG is ideal for digital use. Use the highest resolution available for large-format printing."}},
+{"@type":"Question","name":"Are QR codes free to create?","acceptedAnswer":{"@type":"Answer","text":"Yes, Quik QR Generator is 100% free to use. You can generate unlimited high-resolution QR codes with custom colors and logos at no cost, with no watermarks and no registration required."}},
+{"@type":"Question","name":"How long do QR codes last?","acceptedAnswer":{"@type":"Answer","text":"Static QR codes like those generated by Quik QR Generator never expire. As long as the destination (URL, contact info, etc.) remains valid, the QR code will work forever."}},
+{"@type":"Question","name":"What is error correction in QR codes?","acceptedAnswer":{"@type":"Answer","text":"Error correction allows a QR code to remain scannable even if partially damaged or obscured. Higher levels (H - 30%) are recommended when adding logos, while lower levels (L - 7%) create simpler codes."}},
+{"@type":"Question","name":"What size should my QR code be?","acceptedAnswer":{"@type":"Answer","text":"For business cards, 2x2 cm minimum. For posters, at least 3x3 cm. For billboards, scale proportionally. Always test scanning from the intended viewing distance."}}
+]}
+</script>
+</head>
+<body>
+
+<!-- Header -->
+<nav>
+  <div class="container nav-content">
+    <a href="../index.html" class="logo">Easy<span>Resources</span></a>
+    
+    <div class="menu-toggle" id="mobileMenuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="nav-links" id="navLinks">
+      <div class="nav-item">
+        <a href="#" class="nav-link">Tools <i data-lucide="chevron-down" class="chevron" style="width: 14px; height: 14px;"></i></a>
+        <div class="dropdown">
+          <a href="../qr-code/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="smartphone"></i></span>
+            <div class="text">
+              <span class="title">QR Generator</span>
+              <span class="desc">Custom high-res codes</span>
+            </div>
+          </a>
+          <a href="../Images%20to%20PDF/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="file-text"></i></span>
+            <div class="text">
+              <span class="title">PDF Converter</span>
+              <span class="desc">Images to PDF instantly</span>
+            </div>
+          </a>
+          <a href="../Image%20Compressor/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="image"></i></span>
+            <div class="text">
+              <span class="title">Image Compressor</span>
+              <span class="desc">Lossless optimization</span>
+            </div>
+          </a>
+          <a href="../lorem-ipsum/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="type"></i></span>
+            <div class="text">
+              <span class="title">Lorem Ipsum</span>
+              <span class="desc">Professional text generator</span>
+            </div>
+          </a>
+          <a href="../json-formatter/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="zap"></i></span>
+            <div class="text">
+              <span class="title">JSON Formatter</span>
+              <span class="desc">Validate & Prettify</span>
+            </div>
+          </a>
+          <a href="../color-palette-generator/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="palette"></i></span>
+            <div class="text">
+              <span class="title">Palette Generator</span>
+              <span class="desc">Design harmonious schemes</span>
+            </div>
+          </a>
+          <a href="../favicon-generator/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="link"></i></span>
+            <div class="text">
+              <span class="title">Favicon Generator</span>
+              <span class="desc">Multi-platform icons</span>
+            </div>
+          </a>
+          <a href="../password-generator/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="lock"></i></span>
+            <div class="text">
+              <span class="title">Password Generator</span>
+              <span class="desc">Secure & Customizable</span>
+            </div>
+          </a>
+          <a href="../image-converter/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="refresh-cw"></i></span>
+            <div class="text">
+              <span class="title">Image Converter</span>
+              <span class="desc">Instant format switching</span>
+            </div>
+          </a>
+          <a href="../barcode-generator/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="bar-chart-3"></i></span>
+            <div class="text">
+              <span class="title">Barcode Generator</span>
+              <span class="desc">Retail & Inventory Codes</span>
+            </div>
+          </a>
+          <a href="../color-palette-extractor/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="brush"></i></span>
+            <div class="text">
+              <span class="title">Palette Extractor</span>
+              <span class="desc">Extract colors from images</span>
+            </div>
+          </a>
+          <a href="../svg-optimizer/index.html" class="dropdown-item">
+            <span class="icon"><i data-lucide="ruler"></i></span>
+            <div class="text">
+              <span class="title">SVG Optimizer</span>
+              <span class="desc">Minify & Clean SVGs</span>
+            </div>
+          </a>
+        </div>
+      </div>
+      <a href="../about.html" class="nav-link">About</a>
+      <a href="../support.html" class="nav-link">Support</a>
+      <a href="../contact.html" class="nav-link">Contact</a>
+      <a href="../donate.html" class="nav-cta mobile-only">Donate</a>
+    </div>
+    <a href="../donate.html" class="nav-cta desktop-only">Donate</a>
+  </div>
+</nav>
+
+<!-- Generator -->
+<section class="generator section" id="generator">
+<div class="container">
+  <div class="ad-container ad-banner-top">
+    <!-- Adsense Placeholder -->
+    <div class="ad-placeholder">Advertisement — Support Easy Resources</div>
+  </div>
+
+  <div class="section-header">
+    <p class="label">Professional QR Generator</p>
+    <h1 class="heading-lg">QR Code Generator — High Resolution & Custom Logos</h1>
+    <p>The premium free tool to generate professional QR codes. Part of the Easy Resources tool suite.</p>
+  </div>
+
+  <div class="generator-layout">
+    <div class="generator-form">
+      <!-- Type Tabs -->
+      <div class="type-selector">
+        <div class="tabs" role="tablist">
+          <button class="tab-btn active" data-type="url" role="tab"><span class="tab-icon"><i data-lucide="link"></i></span>URL</button>
+          <button class="tab-btn" data-type="text" role="tab"><span class="tab-icon"><i data-lucide="type"></i></span>Text</button>
+          <button class="tab-btn" data-type="email" role="tab"><span class="tab-icon"><i data-lucide="mail"></i></span>Email</button>
+          <button class="tab-btn" data-type="phone" role="tab"><span class="tab-icon"><i data-lucide="phone"></i></span>Phone</button>
+          <button class="tab-btn" data-type="sms" role="tab"><span class="tab-icon"><i data-lucide="message-square"></i></span>SMS</button>
+          <button class="tab-btn" data-type="whatsapp" role="tab"><span class="tab-icon"><i data-lucide="smartphone"></i></span>WhatsApp</button>
+          <button class="tab-btn" data-type="wifi" role="tab"><span class="tab-icon"><i data-lucide="wifi"></i></span>WiFi</button>
+          <button class="tab-btn" data-type="vcard" role="tab"><span class="tab-icon"><i data-lucide="user"></i></span>vCard</button>
+          <button class="tab-btn" data-type="event" role="tab"><span class="tab-icon"><i data-lucide="calendar"></i></span>Event</button>
+          <button class="tab-btn" data-type="location" role="tab"><span class="tab-icon"><i data-lucide="map-pin"></i></span>Location</button>
+          <button class="tab-btn" data-type="crypto" role="tab"><span class="tab-icon"><i data-lucide="bitcoin"></i></span>Crypto</button>
+          <button class="tab-btn" data-type="social" role="tab"><span class="tab-icon"><i data-lucide="share-2"></i></span>Social Links</button>
+        </div>
+      </div>
+
+      <div class="form-panel" id="form-fields"></div>
+
+      <!-- Customization -->
+      <p class="customization-heading"><i data-lucide="settings" style="width: 18px; height: 18px;"></i> Customize Design</p>
+      <div class="customization-panel open" id="customization-panel">
+
+        <!-- Colors -->
+        <div class="custom-group">
+          <span class="custom-group-label">Color</span>
+          <div class="color-pickers-row">
+            <div class="color-picker-group">
+              <div class="color-picker-wrapper"><input type="color" id="dot-color" value="#1B3A4B"></div>
+              <span class="text-sm">QR Code Color</span>
+            </div>
+          </div>
+          <div class="color-presets">
+            <button class="color-preset active" data-fg="#1B3A4B" style="background:#1B3A4B" title="Navy"></button>
+            <button class="color-preset" data-fg="#000000" style="background:#000000" title="Classic"></button>
+            <button class="color-preset" data-fg="#6B2D5B" style="background:#6B2D5B" title="Burgundy"></button>
+            <button class="color-preset" data-fg="#1B5E3B" style="background:#1B5E3B" title="Forest"></button>
+            <button class="color-preset" data-fg="#C84B31" style="background:#C84B31" title="Terracotta"></button>
+            <button class="color-preset" data-fg="#2563EB" style="background:#2563EB" title="Blue"></button>
+            <button class="color-preset" data-fg="#7C3AED" style="background:#7C3AED" title="Violet"></button>
+            <button class="color-preset" data-fg="#0D9488" style="background:#0D9488" title="Teal"></button>
+          </div>
+        </div>
+
+        <!-- Dot & Corner Style -->
+        <div class="custom-group">
+          <span class="custom-group-label">Dot Style</span>
+          <div class="style-options">
+            <button class="style-option dot-style-btn" data-style="square" title="Square"><i data-lucide="square" style="width: 14px; height: 14px;"></i></button>
+            <button class="style-option dot-style-btn active" data-style="rounded" title="Rounded"><i data-lucide="circle" style="width: 14px; height: 14px;"></i></button>
+            <button class="style-option dot-style-btn" data-style="dots" title="Dots"><i data-lucide="disc" style="width: 14px; height: 14px;"></i></button>
+            <button class="style-option dot-style-btn" data-style="extra-rounded" title="Extra Rounded"><i data-lucide="diamond" style="width: 14px; height: 14px;"></i></button>
+            <button class="style-option dot-style-btn" data-style="classy" title="Classy"><i data-lucide="hexagon" style="width: 14px; height: 14px;"></i></button>
+            <button class="style-option dot-style-btn" data-style="classy-rounded" title="Classy Rounded"><i data-lucide="target" style="width: 14px; height: 14px;"></i></button>
+          </div>
+          <span class="custom-group-label" style="margin-top:var(--lg)">Corner Style</span>
+          <div class="style-options">
+            <button class="style-option corner-style-btn" data-style="square" title="Square"><i data-lucide="square" style="width: 14px; height: 14px;"></i></button>
+            <button class="style-option corner-style-btn active" data-style="extra-rounded" title="Rounded"><i data-lucide="circle" style="width: 14px; height: 14px;"></i></button>
+            <button class="style-option corner-style-btn" data-style="dot" title="Dot"><i data-lucide="disc" style="width: 14px; height: 14px;"></i></button>
+          </div>
+        </div>
+
+        <!-- Logo Upload -->
+        <div class="custom-group">
+          <span class="custom-group-label">Logo (Optional)</span>
+          <div class="logo-upload">
+            <img id="logo-preview-img" class="logo-preview" src="" alt="Logo preview">
+            <div class="upload-icon"><i data-lucide="image"></i></div>
+            <div class="upload-text">Click or drag to upload logo<br><small>PNG, JPG, SVG — Max 2MB</small></div>
+            <input type="file" id="logo-input" accept="image/*">
+            <button id="logo-remove" class="btn btn-sm btn-ghost" style="position:absolute;top:4px;right:4px;display:none;z-index:2"><i data-lucide="x" style="width: 14px; height: 14px;"></i></button>
+          </div>
+        </div>
+
+        <!-- Error Correction & Size -->
+        <div class="custom-group">
+          <span class="custom-group-label">Advanced Settings</span>
+          <div class="settings-row">
+            <div class="form-group">
+              <label class="form-label" for="error-correction">Error Correction</label>
+              <select id="error-correction" class="form-input">
+                <option value="L">Low (7%)</option>
+                <option value="M" selected>Medium (15%)</option>
+                <option value="Q">Quartile (25%)</option>
+                <option value="H">High (30%)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="qr-size">Size</label>
+              <select id="qr-size" class="form-input">
+                <option value="512">Small (512px)</option>
+                <option value="1024" selected>Medium (1024px)</option>
+                <option value="2048">Large (2048px)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Preview Panel -->
+    <div class="preview-panel">
+      <p class="label" style="margin-bottom:1rem">Live Preview</p>
+      <div class="preview-container">
+        <div id="qr-preview">
+          <div class="preview-placeholder"><span class="icon"><i data-lucide="qr-code"></i></span><span>Enter data to generate QR code</span></div>
+        </div>
+      </div>
+      <div class="format-selector">
+        <button class="format-btn active" data-format="png">PNG</button>
+        <button class="format-btn" data-format="svg">SVG</button>
+        <button class="format-btn" data-format="jpeg">JPEG</button>
+        <button class="format-btn" data-format="webp">WebP</button>
+      </div>
+      <button id="download-btn" class="btn btn-primary btn-block">Download QR Code</button>
+      <p class="text-xs text-muted" style="margin-top:var(--sm)">Free • No watermark • High resolution • Transparent background</p>
+      
+      <!-- Generator Sidebar Ad -->
+      <div class="ad-container ad-sidebar">
+        <div class="ad-placeholder">Advertisement</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- Content Expansion for SEO -->
+<section class="seo-content section">
+<div class="container">
+  <div class="grid-2">
+    <div class="content-block">
+      <h2 class="heading-md">Why Choose Quik QR Generator?</h2>
+      <p>In today's mobile-first world, QR codes are essential for bridging the gap between physical and digital experiences. Quik QR Generator provides the most reliable, high-resolution QR codes for professionals and businesses.</p>
+      <ul class="benefit-list">
+        <li><strong>High Resolution:</strong> Downloads up to 2048px for perfect printing.</li>
+        <li><strong>Custom Branding:</strong> Add your business logo to any QR code.</li>
+        <li><strong>Transparent Backgrounds:</strong> Ideal for professional graphic design.</li>
+        <li><strong>Unlimited & Free:</strong> No hidden fees or limited scans.</li>
+      </ul>
+    </div>
+    <div class="content-block">
+      <h2 class="heading-md">Common QR Code Use Cases</h2>
+      <p>From marketing campaigns to operational efficiency, our QR codes work everywhere:</p>
+      <ul class="benefit-list">
+        <li><strong>Restaurant Menus:</strong> Hygienic, digital menu access.</li>
+        <li><strong>Business Cards:</strong> Instant contact sharing (vCard).</li>
+        <li><strong>WiFi Access:</strong> Secure, password-free connections.</li>
+        <li><strong>Social Media:</strong> Grow your following with one scan.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+<div class="ad-container ad-banner-mid">
+  <div class="ad-placeholder">Advertisement</div>
+</div>
+
+<!-- Ad: Between sections -->
+<div class="container" style="padding:2rem 1.5rem"><div class="ad-container" id="ad-mid"><span class="ad-label">Advertisement</span></div></div>
+
+<!-- Features -->
+<section class="section" id="features">
+<div class="container">
+  <div class="section-header">
+    <p class="label">Powerful Features</p>
+    <h2 class="heading-lg">Everything You Need to Create Perfect QR Codes</h2>
+    <p>Professional-grade tools that make your QR codes stand out. No design skills required.</p>
+  </div>
+  <div class="features-grid">
+    <div class="card feature-card animate-in"><div class="feature-icon"><i data-lucide="palette"></i></div><h3>Custom Colors</h3><p>Match your brand identity with custom foreground and background colors. Choose from presets or pick any color.</p></div>
+    <div class="card feature-card animate-in stagger-1"><div class="feature-icon"><i data-lucide="sparkles"></i></div><h3>Logo Embedding</h3><p>Make QR codes uniquely yours by adding your business logo. Automatic error correction ensures scannability.</p></div>
+    <div class="card feature-card animate-in stagger-2"><div class="feature-icon"><i data-lucide="ruler"></i></div><h3>High Resolution</h3><p>Download print-ready QR codes up to 1200×1200px. Perfect for business cards, posters, and packaging.</p></div>
+    <div class="card feature-card animate-in stagger-3"><div class="feature-icon"><i data-lucide="file-text"></i></div><h3>Multiple Formats</h3><p>Export as PNG, SVG, JPEG, or WebP. SVG provides infinite scaling for any print size without quality loss.</p></div>
+    <div class="card feature-card animate-in"><div class="feature-icon"><i data-lucide="zap"></i></div><h3>Instant Preview</h3><p>See your QR code update in real-time as you type. No waiting, no page reloads — instant visual feedback.</p></div>
+    <div class="card feature-card animate-in stagger-1"><div class="feature-icon"><i data-lucide="wifi"></i></div><h3>WiFi Codes</h3><p>Create QR codes that instantly connect devices to your WiFi network. Perfect for offices, cafés, and events.</p></div>
+    <div class="card feature-card animate-in stagger-2"><div class="feature-icon"><i data-lucide="user"></i></div><h3>Contact Cards</h3><p>Generate vCard QR codes with full contact details. One scan adds name, phone, email, and company instantly.</p></div>
+    <div class="card feature-card animate-in stagger-3"><div class="feature-icon"><i data-lucide="shield"></i></div><h3>Error Correction</h3><p>Choose from 4 error correction levels to balance data density with damage resistance. Higher levels support logos.</p></div>
+  </div>
+</div>
+</section>
+
+<!-- How It Works -->
+<section class="section" id="how-it-works" style="background:var(--bg-secondary);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+<div class="container">
+  <div class="section-header">
+    <p class="label">Simple Process</p>
+    <h2 class="heading-lg">How It Works</h2>
+    <p>Create your perfect QR code in four easy steps — no account required to start.</p>
+  </div>
+  <div class="steps">
+    <div class="step animate-in"><div class="step-number">1</div><h3>Choose Type</h3><p>Select from 12 QR code types including URL, WiFi, vCard, and more.</p></div>
+    <div class="step animate-in stagger-1"><div class="step-number">2</div><h3>Enter Data</h3><p>Fill in your information. The QR code preview updates instantly as you type.</p></div>
+    <div class="step animate-in stagger-2"><div class="step-number">3</div><h3>Customize</h3><p>Add colors, change styles, upload your logo to match your brand identity.</p></div>
+    <div class="step animate-in stagger-3"><div class="step-number">4</div><h3>Download</h3><p>Export in PNG, SVG, JPEG, or WebP. Print-ready quality, completely free.</p></div>
+  </div>
+</div>
+</section>
+
+<!-- Use Cases -->
+<section class="section" id="use-cases">
+<div class="container">
+  <div class="section-header">
+    <p class="label">Real-World Applications</p>
+    <h2 class="heading-lg">QR Codes for Every Purpose</h2>
+    <p>From business cards to restaurant menus, QR codes transform how people connect with your brand.</p>
+  </div>
+  <div class="use-cases-grid">
+    <div class="card use-case-card animate-in"><span class="use-case-icon"><i data-lucide="briefcase"></i></span><div><h3>Business Cards</h3><p>Add a QR code to your business card that shares your complete contact information with a single scan. No more manual typing.</p></div></div>
+    <div class="card use-case-card animate-in stagger-1"><span class="use-case-icon"><i data-lucide="utensils"></i></span><div><h3>Restaurant Menus</h3><p>Replace physical menus with scannable QR codes. Update your menu instantly without reprinting. Perfect for contactless dining.</p></div></div>
+    <div class="card use-case-card animate-in stagger-2"><span class="use-case-icon"><i data-lucide="ticket"></i></span><div><h3>Event Tickets</h3><p>Create QR codes for event check-in, linking to event details, maps, and schedules. Streamline your event management.</p></div></div>
+    <div class="card use-case-card animate-in stagger-3"><span class="use-case-icon"><i data-lucide="package"></i></span><div><h3>Product Packaging</h3><p>Link customers to product details, instructions, reviews, or warranty registration right from the packaging.</p></div></div>
+    <div class="card use-case-card animate-in"><span class="use-case-icon"><i data-lucide="home"></i></span><div><h3>Real Estate</h3><p>Place QR codes on property signs linking to virtual tours, pricing details, and contact information for interested buyers.</p></div></div>
+    <div class="card use-case-card animate-in stagger-1"><span class="use-case-icon"><i data-lucide="megaphone"></i></span><div><h3>Marketing Campaigns</h3><p>Bridge print and digital marketing. Track engagement by linking QR codes to landing pages, promotions, or social media.</p></div></div>
+  </div>
+</div>
+</section>
+
+<!-- Social Proof -->
+<section class="section" style="background:var(--bg-secondary);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+<div class="container">
+  <div class="section-header">
+    <p class="label">Trusted Worldwide</p>
+    <h2 class="heading-lg">Join Thousands of Creators</h2>
+  </div>
+  <div class="proof-stats animate-in">
+    <div class="proof-stat"><span class="proof-number" data-count="127843" data-suffix="+">0+</span><p class="proof-label">QR Codes Created</p></div>
+    <div class="proof-stat"><span class="proof-number" data-count="89" data-suffix="+">0+</span><p class="proof-label">Countries Served</p></div>
+    <div class="proof-stat"><span class="proof-number" data-count="12" data-suffix="">0</span><p class="proof-label">QR Code Types</p></div>
+    <div class="proof-stat"><span class="proof-number" data-count="99" data-suffix="%">0%</span><p class="proof-label">Scan Success Rate</p></div>
+  </div>
+</div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+<div class="container">
+  <div class="section-header">
+    <p class="label">Common Questions</p>
+    <h2 class="heading-lg">Frequently Asked Questions</h2>
+    <p>Everything you need to know about creating and using QR codes.</p>
+  </div>
+  <div class="faq-list">
+    <div class="accordion-item">
+      <button class="accordion-trigger"><span>What is a QR code?</span><i data-lucide="plus" class="icon"></i></button>
+      <div class="accordion-content"><div class="accordion-body">A QR (Quick Response) code is a two-dimensional barcode that stores information like URLs, text, contact details, or WiFi credentials. It can be scanned by any smartphone camera to instantly access the encoded information. QR codes were invented in 1994 by Denso Wave and have become ubiquitous in marketing, payments, and information sharing.</div></div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger"><span>How do I create a custom QR code?</span><i data-lucide="plus" class="icon"></i></button>
+      <div class="accordion-content"><div class="accordion-body">Simply select a QR code type from our 12 options, enter your data, and your code generates instantly. You can then customize colors, dot styles, corner shapes, and even add your logo. Download in PNG, SVG, JPEG, or WebP format — all completely free.</div></div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger"><span>Can I add my logo to a QR code?</span><i data-lucide="plus" class="icon"></i></button>
+      <div class="accordion-content"><div class="accordion-body">Yes! Upload any logo or image (PNG, JPG, or SVG, max 2MB) and it will be embedded in the center of your QR code. We automatically increase error correction to the highest level (30%) to ensure the code remains scannable even with the logo overlay.</div></div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger"><span>What's the best size for a QR code?</span><i data-lucide="plus" class="icon"></i></button>
+      <div class="accordion-content"><div class="accordion-body">For business cards, a minimum of 2×2 cm works well. For posters and signage, use at least 3×3 cm. For billboards, scale proportionally to the viewing distance. We recommend our Large (1200px) export for any print application to ensure crisp, clear scanning.</div></div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger"><span>Are QR codes free to create?</span><i data-lucide="plus" class="icon"></i></button>
+      <div class="accordion-content"><div class="accordion-body">Absolutely. Quik QR Generator is completely free to use. Generate unlimited QR codes with full customization options including custom colors, logo embedding, and high-resolution exports. No watermarks, no hidden fees, no trial limitations.</div></div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger"><span>What file format should I use?</span><i data-lucide="plus" class="icon"></i></button>
+      <div class="accordion-content"><div class="accordion-body">SVG is the best choice for print materials — it's a vector format that scales infinitely without any quality loss. PNG is ideal for digital use (websites, emails, social media). JPEG works for general purpose, and WebP offers the best compression for web applications.</div></div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger"><span>How long do QR codes last?</span><i data-lucide="plus" class="icon"></i></button>
+      <div class="accordion-content"><div class="accordion-body">Static QR codes generated by Quik QR Generator never expire. The data is encoded directly in the code pattern. As long as the destination (URL, contact info, WiFi network) remains valid, the QR code will continue to work indefinitely.</div></div>
+    </div>
+    <div class="accordion-item">
+      <button class="accordion-trigger"><span>What is error correction and which level should I use?</span><i data-lucide="plus" class="icon"></i></button>
+      <div class="accordion-content"><div class="accordion-body">Error correction allows a QR code to remain scannable even if partially damaged or obscured. Level L (7%) creates simpler codes with more data capacity. Level M (15%) is the default balance. Level Q (25%) adds more redundancy. Level H (30%) provides maximum resilience and is automatically selected when you add a logo.</div></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="cta">
+<div class="container">
+  <div class="section-header" style="margin-bottom:0">
+    <p class="label" style="color:rgba(255,255,255,.6)">Get Started</p>
+    <h2 class="heading-lg">Ready to Create Your QR Code?</h2>
+    <p>Join over 100,000 creators who trust Quik QR for professional QR codes. Free forever, no strings attached.</p>
+  </div>
+  <a href="#generator" class="btn btn-primary btn-lg">Create Your QR Code Now</a>
+</div>
+</section>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="../index.html" class="logo">Easy<span>Resources</span></a>
+        <p>Providing the world with free, professional-grade digital utilities. Part of the Easy Resources suite.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tools</h4>
+        <ul>
+          <li><a href="../qr-code/index.html">QR Generator</a></li>
+          <li><a href="../Images%20to%20PDF/index.html">Images to PDF</a></li>
+          <li><a href="../Image%20Compressor/index.html">Image Compressor</a></li>
+          <li><a href="../lorem-ipsum/index.html">Lorem Ipsum</a></li>
+          <li><a href="../json-formatter/index.html">JSON Formatter</a></li>
+          <li><a href="../color-palette-generator/index.html">Palette Generator</a></li>
+          <li><a href="../favicon-generator/index.html">Favicon Generator</a></li>
+          <li><a href="../password-generator/index.html">Password Generator</a></li>
+          <li><a href="../image-converter/index.html">Image Converter</a></li>
+          <li><a href="../barcode-generator/index.html">Barcode Generator</a></li>
+          <li><a href="../color-palette-extractor/index.html">Palette Extractor</a></li>
+          <li><a href="../svg-optimizer/index.html">SVG Optimizer</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="../about.html">About Us</a></li>
+          <li><a href="../support.html">Support</a></li>
+          <li><a href="../contact.html">Contact</a></li>
+          <li><a href="../donate.html">Donate</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Use</a></li>
+          <li><a href="#">Cookie Policy</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Easy Resources. All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="#">Twitter</a>
+        <a href="#">GitHub</a>
+        <a href="#">Discord</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/qr-code-styling@1.6.0-rc.1/lib/qr-code-styling.js"></script>
+<script src="js/services.js"></script>
+<script src="js/social-links.js"></script>
+<script src="js/qr-generator.js"></script>
+<script src="js/ui-controls.js"></script>
+<script src="js/app.js"></script>
+<script>
+  // Mobile Menu Logic
+  const menuToggle = document.getElementById('mobileMenuToggle');
+  const navLinks = document.getElementById('navLinks');
+  const navItems = document.querySelectorAll('.nav-item');
+
+  if (menuToggle) {
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('active');
+      navLinks.classList.toggle('active');
+      document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
+    });
+  }
+
+  // Mobile Dropdown Toggle
+  navItems.forEach(item => {
+    const link = item.querySelector('.nav-link');
+    link.addEventListener('click', (e) => {
+      if (window.innerWidth <= 991) {
+        e.preventDefault();
+        item.classList.toggle('active');
+      }
+    });
+  });
+
+  // Close menu when clicking links
+  document.querySelectorAll('.nav-links a:not(.nav-link)').forEach(link => {
+    link.addEventListener('click', () => {
+      if (menuToggle) menuToggle.classList.remove('active');
+      if (navLinks) navLinks.classList.remove('active');
+      document.body.style.overflow = '';
+    });
+  });
+
+  lucide.createIcons();
+</script>
+</body>
+</html>
