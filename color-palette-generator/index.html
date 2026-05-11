@@ -139,46 +139,30 @@
     }
     .shade-box:hover { transform: scale(1.1); }
 
-    /* Footer Controls */
-    .palette-
-
-    .btn-main {
-      background: var(--text);
-      color: white;
-      border: none;
-      padding: 0.8rem 2.5rem;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 1.1rem;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .btn-main:hover { transform: translateY(-2px); background: #000; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-
-    .hint { color: #666; font-size: 0.9rem; font-weight: 600; }
-    .hint kbd {
-      background: #f1f5f9;
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      border: 1px solid #cbd5e1;
-      font-family: inherit;
-    }
-
-    .footer-actions { display: flex; gap: 1rem; }
-    .footer-btn {
-      padding: 0.6rem 1.25rem;
-      border-radius: 8px;
-      border: 1px solid var(--border);
+    /* Hint UI */
+    .generate-hint {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
       background: white;
-      font-size: 0.9rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.2s;
+      padding: 0.75rem 1.5rem;
+      border-radius: 100px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
       display: flex;
       align-items: center;
-      gap: 0.5rem;
+      z-index: 100;
     }
-    .footer-btn:hover { background: #f8fafc; border-color: #cbd5e1; }
+    .desktop-hint { font-weight: 600; font-size: 0.9rem; color: var(--text); }
+    .desktop-hint kbd {
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 0.8rem;
+    }
+    .mobile-generate-btn { display: none; }
 
     /* Animations */
     @keyframes slideUp {
@@ -193,7 +177,18 @@
       .column-tools { flex-direction: row; top: auto; bottom: 1rem; left: auto; right: 2rem; transform: none; opacity: 0.8; }
       .color-column:hover .column-tools { transform: none; }
       .hex-code { font-size: 1.1rem; }
-      .palette-
+      .desktop-hint { display: none; }
+      .mobile-generate-btn {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: transparent;
+        color: var(--text);
+        border: none;
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+      }
     }
   </style>
 <meta property="og:title" content="Palette Genius — Professional Color Scheme Generator">
@@ -325,19 +320,10 @@
 
 <div class="palette-container" id="palette"></div>
 
-<footer class="palette-footer">
-  <div class="footer-actions">
-    <button class="footer-btn" id="exploreBtn"><i data-lucide="flame" style="width: 16px; height: 16px; color: #f97316;"></i> Explore</button>
-  </div>
-  
-  <button class="btn-main" id="generateBtn">Generate</button>
-  
-  <div class="footer-actions">
-    <button class="footer-btn" id="exportBtn"><i data-lucide="download" style="width: 16px; height: 16px;"></i> Export</button>
-    <button class="footer-btn" id="copyAllBtn"><i data-lucide="copy" style="width: 16px; height: 16px;"></i> Copy All</button>
-  </div>
-</footer>
-
+<div class="generate-hint">
+  <span class="desktop-hint">Press <kbd>Space</kbd> to generate</span>
+  <button id="mobileGenerateBtn" class="mobile-generate-btn"><i data-lucide="refresh-cw" style="width: 18px; height: 18px;"></i> Generate</button>
+</div>
 <script>
   let colors = [];
   let locked = [false, false, false, false, false];
@@ -466,29 +452,16 @@
     });
   }
 
-  document.getElementById('generateBtn').addEventListener('click', updatePalette);
+  const mobileBtn = document.getElementById('mobileGenerateBtn');
+  if (mobileBtn) {
+    mobileBtn.addEventListener('click', updatePalette);
+  }
   
   document.addEventListener('keydown', (e) => {
-    if (e.code === 'Space') {
+    if (e.code === 'Space' && e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
       e.preventDefault();
       updatePalette();
     }
-  });
-
-  document.getElementById('copyAllBtn').addEventListener('click', () => {
-    copyToClipboard(colors.join(', '));
-  });
-
-  document.getElementById('exportBtn').addEventListener('click', () => {
-    let content = `:root {\n`;
-    colors.forEach((c, i) => content += `  --color-${i+1}: ${c};\n`);
-    content += `}`;
-    const blob = new Blob([content], { type: 'text/plain' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'palette.css';
-    a.click();
   });
 
   // Initial
