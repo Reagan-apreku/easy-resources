@@ -1,0 +1,11 @@
+{
+  "name": "easy-resources",
+  "version": "1.0.0",
+  "description": "Free Professional Online Tools for Everyone",
+  "scripts": {
+    "test": "echo \"No tests configured\" && exit 0"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.6.1"
+  }
+}
