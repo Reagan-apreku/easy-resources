@@ -11,13 +11,13 @@
 .nav-link:hover::after{width:100%}
 .header-actions{display:flex;align-items:center;gap:var(--md)}
 #clerk-auth{min-width:100px}
-.menu-toggle{display:none;flex-direction:column;gap:5px;width:28px;padding:4px 0}
+.menu-toggle{display:none;flex-direction:column;gap:5px;width:28px;padding:4px 0;cursor:pointer;z-index:1001}
 .menu-toggle span{display:block;height:2px;background:var(--text-primary);border-radius:2px;transition:var(--transition)}
-@media(max-width:1023px){
-  .nav-links{display:none;position:absolute;top:var(--header-h);left:0;right:0;
-    flex-direction:column;background:var(--bg-secondary);border-bottom:1px solid var(--border);
-    padding:var(--lg);gap:var(--md);box-shadow:var(--shadow-md)}
-  .nav-links.open{display:flex}
+@media(max-width:991px){
+  .nav-links{position:fixed;top:0;right:-100%;width:100%;height:100vh;
+    flex-direction:column;background:#fff;align-items:center;justify-content:center;
+    padding:2rem;gap:2rem;transition:0.4s cubic-bezier(0.4,0,0.2,1);z-index:1000}
+  .nav-links.active{right:0}
   .menu-toggle{display:flex}
 }
 
