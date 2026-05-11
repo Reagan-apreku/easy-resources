@@ -41,122 +41,12 @@
     }
 
     /* Nav */
-    nav {
-      padding: 0.75rem 0;
-      border-bottom: 1px solid var(--border);
-      background: white;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
-    .nav-content { display: flex; justify-content: space-between; align-items: center; }
-    .logo { font-size: 1.5rem; font-weight: 800; color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 0.5rem; }
-    .logo span { color: var(--accent); }
-    .nav-links { display: flex; align-items: center; gap: 2.5rem; }
-    .nav-item { position: relative; }
-    .nav-link { text-decoration: none; color: #666; font-size: 0.9375rem; font-weight: 600; transition: color 0.2s; display: flex; align-items: center; gap: 0.35rem; }
-    .nav-link:hover, .nav-link.active { color: var(--text); }
     
-    .dropdown {
-      position: absolute;
-      top: calc(100% + 1rem);
-      left: 50%;
-      transform: translateX(-50%) translateY(10px);
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 0.75rem;
-      min-width: 240px;
-      box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-      opacity: 0;
-      visibility: hidden;
-      transition: all 0.2s var(--ease);
-    }
-    .nav-item:hover .dropdown { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
-    .dropdown-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.75rem 1rem; text-decoration: none; color: var(--text); border-radius: 8px; transition: background 0.2s; }
-    .dropdown-item:hover { background: var(--bg); }
-    .dropdown-item .title { font-weight: 700; font-size: 0.875rem; display: block; }
-    .dropdown-item .desc { font-size: 0.75rem; color: #666; display: block; }
+    .container { max-width: 1400px; margin: 0 auto; padding: 0 2rem; }
 
-    .nav-cta {
-      padding: 0.7rem 1.5rem;
-      background: var(--text);
-      color: white;
-      text-decoration: none;
-      border-radius: 100px;
-      font-weight: 700;
-      font-size: 0.875rem;
-      transition: all 0.2s;
-    }
-    .nav-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+    .nav-item:hover 
 
     /* Mobile Nav */
-    .mobile-only { display: none; }
-    .desktop-only { display: flex; }
-    
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      gap: 6px;
-      cursor: pointer;
-      padding: 0.5rem;
-      z-index: 1001;
-      transition: var(--ease);
-    }
-    .menu-toggle span {
-      width: 24px;
-      height: 2px;
-      background: var(--text);
-      border-radius: 2px;
-      transition: 0.3s;
-    }
-    .menu-toggle.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-    .menu-toggle.active span:nth-child(2) { opacity: 0; }
-    .menu-toggle.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-
-    @media (max-width: 991px) {
-      .desktop-only { display: none; }
-      .mobile-only { display: flex; }
-      .menu-toggle { display: flex; }
-      .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 100%;
-        height: 100vh;
-        background: white;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 2rem;
-        gap: 2rem;
-        transition: 0.4s var(--ease);
-        z-index: 1000;
-      }
-      .nav-links.active { right: 0; }
-      .nav-link { font-size: 1.25rem; }
-      .dropdown {
-        position: static;
-        transform: none !important;
-        opacity: 1 !important;
-        visibility: visible !important;
-        box-shadow: none;
-        border: none;
-        padding: 0;
-        height: 0;
-        overflow: hidden;
-        transition: height 0.3s var(--ease);
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        min-width: unset;
-      }
-      .nav-item.active .dropdown { height: auto; padding-top: 1rem; }
-      .nav-item.active .chevron { transform: rotate(180deg); }
-      .chevron { transition: 0.3s; }
-    }
 
     /* Palette Engine */
     .palette-container {
@@ -251,16 +141,7 @@
     .shade-box:hover { transform: scale(1.1); }
 
     /* Footer Controls */
-    .palette-footer {
-      padding: 1.5rem;
-      background: white;
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 3rem;
-      z-index: 1000;
-    }
+    .palette-
 
     .btn-main {
       background: var(--text);
@@ -313,7 +194,7 @@
       .column-tools { flex-direction: row; top: auto; bottom: 1rem; left: auto; right: 2rem; transform: none; opacity: 0.8; }
       .color-column:hover .column-tools { transform: none; }
       .hex-code { font-size: 1.1rem; }
-      .palette-footer { flex-direction: column; gap: 1.5rem; }
+      .palette-
     }
   </style>
 <meta property="og:title" content="Palette Genius — Professional Color Scheme Generator">
@@ -327,6 +208,7 @@
 <meta name="twitter:image" content="https://easyresources.online/assets/og-preview.png">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://easyresources.online/color-palette-generator/">
+  <link rel="stylesheet" href="../global.css">
 </head>
 <body>
 
