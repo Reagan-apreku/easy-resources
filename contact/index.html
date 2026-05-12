@@ -43,9 +43,42 @@
 
   .container { max-width: var(--container); margin: 0 auto; padding: 0 2rem; }
 
-  /* Dropdown (Synced) */
+  /* Contact Hero */
+  .contact-hero { padding: 6rem 0 4rem; text-align: center; }
+  .contact-hero h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: -0.04em; margin-bottom: 1.5rem; }
+  .contact-hero p { font-size: 1.125rem; color: var(--text-soft); max-width: 600px; margin: 0 auto; }
+
+  /* Layout */
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom: 8rem; }
   
-  
+  /* Form */
+  .contact-form { background: white; padding: 3rem; border-radius: 32px; border: 1px solid var(--border); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05); }
+  .form-group { margin-bottom: 1.5rem; }
+  .form-group label { display: block; font-size: 0.875rem; font-weight: 700; margin-bottom: 0.5rem; }
+  .form-input { 
+    width: 100%; padding: 1rem; border-radius: 12px; border: 1px solid var(--border); 
+    font-family: inherit; font-size: 1rem; transition: border-color 0.2s; background: var(--bg);
+  }
+  .form-input:focus { outline: none; border-color: var(--accent); background: white; }
+  textarea.form-input { min-height: 150px; resize: vertical; }
+
+  .btn-submit {
+    width: 100%; padding: 1.25rem; background: var(--text); color: white; border: none; 
+    border-radius: 100px; font-weight: 700; cursor: pointer; transition: opacity 0.2s; font-size: 1rem;
+  }
+  .btn-submit:hover { opacity: 0.9; }
+
+  /* Info */
+  .contact-info { padding: 2rem 0; }
+  .info-item { margin-bottom: 3rem; }
+  .info-item h3 { font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem; }
+  .info-item p { color: var(--text-soft); }
+  .info-item a { color: var(--accent); text-decoration: none; font-weight: 600; }
+
+  @media (max-width: 868px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .contact-hero h1 { font-size: 2.5rem; }
+  }
   </style>
 <meta property="og:title" content="Contact Us — Easy Resources">
 <meta property="og:description" content="Get in touch with the Easy Resources team. We">

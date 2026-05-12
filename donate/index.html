@@ -41,7 +41,53 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  .container { max-width: var(--container); margin: 0 auto; padding: 0 2rem; }  </style>
+  .container { max-width: var(--container); margin: 0 auto; padding: 0 2rem; }
+
+  .donate-hero { padding: 8rem 0 6rem; text-align: center; }
+  .donate-hero h1 { font-size: clamp(3rem, 7vw, 4.5rem); font-weight: 800; letter-spacing: -0.05em; line-height: 1.1; margin-bottom: 2rem; }
+  .donate-hero p { font-size: 1.25rem; color: var(--text-soft); max-width: 800px; margin: 0 auto; font-weight: 500; }
+
+  /* Grid */
+  .donate-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-bottom: 8rem; }
+  
+  .donate-card {
+    background: white; border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 3rem 2rem; text-align: center; transition: all 0.3s var(--ease);
+    display: flex; flex-direction: column; align-items: center;
+  }
+  .donate-card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.05); }
+  
+  .donate-icon { font-size: 3rem; margin-bottom: 1.5rem; }
+  .donate-card h3 { font-size: 1.5rem; font-weight: 800; margin-bottom: 0.5rem; }
+  .price { font-size: 2.5rem; font-weight: 800; margin-bottom: 1.5rem; color: var(--accent); }
+  .price span { font-size: 1rem; color: var(--text-soft); font-weight: 500; }
+  .donate-card p { font-size: 0.9375rem; color: var(--text-soft); margin-bottom: 2.5rem; flex-grow: 1; }
+
+  .btn-donate {
+    width: 100%; padding: 1rem; border-radius: 100px; background: var(--text); color: white;
+    text-decoration: none; font-weight: 700; transition: opacity 0.2s;
+  }
+  .btn-donate:hover { opacity: 0.9; }
+
+  .donate-card.featured { border: 2px solid var(--accent); position: relative; }
+  .donate-card.featured .badge {
+    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+    background: var(--accent); color: white; padding: 0.25rem 1rem; border-radius: 100px;
+    font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  .donate-card.featured .btn-donate { background: var(--accent); }
+
+  /* Why Donate */
+  .section { padding: 8rem 0; background: white; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
+  .section h2 { font-size: 2.5rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
+  .section p { color: var(--text-soft); font-size: 1.125rem; margin-bottom: 2rem; }
+
+  @media (max-width: 968px) {
+    .donate-grid { grid-template-columns: 1fr; }
+    .grid-2 { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+  }
+  </style>
 <meta property="og:title" content="Support Our Course — Easy Resources">
 <meta property="og:description" content="Support the development of Easy Resources. Your donations help us keep our tools free, private, and high-fidelity for everyone.">
 <meta property="og:type" content="website">
