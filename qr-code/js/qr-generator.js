@@ -136,7 +136,12 @@ const QRGenerator = (() => {
           lines.push(`item${itemIndex}.X-ABLabel:${label}`);
           itemIndex++;
         } else {
-          const url = (platformUrls[link.platform] || '') + link.value;
+          let url = link.value;
+          if (!url.startsWith('http')) {
+            // Strip any leading '@' just in case they typed it
+            let val = link.value.replace(/^@/, '');
+            url = (platformUrls[link.platform] || '') + val;
+          }
           const label = link.platform.charAt(0).toUpperCase() + link.platform.slice(1);
           lines.push(`X-SOCIALPROFILE;type=${label}:${url}`);
         }
