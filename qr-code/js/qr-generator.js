@@ -128,16 +128,13 @@ const QRGenerator = (() => {
       if (bio) lines.push(`NOTE:${bio}`);
       
       // Add links — websites as URLs, social profiles as X-SOCIALPROFILE or URL
-      let urlCount = 0;
+      let itemIndex = 1;
       links.forEach(link => {
         if (link.type === 'website') {
           const label = link.label || 'Website';
-          if (urlCount === 0) {
-            lines.push(`URL:${link.value}`);
-          } else {
-            lines.push(`URL;type=${label}:${link.value}`);
-          }
-          urlCount++;
+          lines.push(`item${itemIndex}.URL:${link.value}`);
+          lines.push(`item${itemIndex}.X-ABLabel:${label}`);
+          itemIndex++;
         } else {
           const url = (platformUrls[link.platform] || '') + link.value;
           const label = link.platform.charAt(0).toUpperCase() + link.platform.slice(1);
