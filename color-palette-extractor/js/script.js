@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'extracted-palette.css';
+        a.download = 'easy-resources-palette.css';
         a.click();
         URL.revokeObjectURL(url);
     });

@@ -260,7 +260,7 @@ function downloadFile(id) {
     name = name.split('.').slice(0, -1).join('.') + '.' + outputFormatSelect.value;
   }
   
-  a.download = 'optimized-' + name;
+  a.download = 'easy-resources-optimized-' + name;
   a.click();
   URL.revokeObjectURL(url);
 }

@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Trigger Download
             const a = document.createElement('a');
-            a.download = `barcode-${barcodeFormat.value.toLowerCase()}.png`;
+            a.download = `easy-resources-barcode-${barcodeFormat.value.toLowerCase()}.png`;
             a.href = canvas.toDataURL('image/png');
             a.click();
         };

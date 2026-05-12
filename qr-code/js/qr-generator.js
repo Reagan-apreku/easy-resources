@@ -333,7 +333,7 @@ const QRGenerator = (() => {
     if (!qrInstance) return false;
     const ext = format === 'svg' ? 'svg' : format;
     try {
-      await qrInstance.download({ name: 'quikqr-code', extension: ext });
+      await qrInstance.download({ name: 'easy-resources-qr', extension: ext });
       const count = await Services.incrementGenerationCount();
       Services.track('qr_downloaded', { format });
       return count;

@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const link = document.createElement('a');
             const ext = targetFormat.split('/')[1];
-            link.download = `converted-${fileName.textContent.split('.')[0]}.${ext === 'jpeg' ? 'jpg' : ext}`;
+            link.download = `easy-resources-${fileName.textContent.split('.')[0]}.${ext === 'jpeg' ? 'jpg' : ext}`;
             link.href = dataUrl;
             link.click();
         };

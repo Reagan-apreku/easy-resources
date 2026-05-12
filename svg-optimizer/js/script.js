@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'optimized.svg';
+        a.download = 'easy-resources-optimized.svg';
         a.click();
         URL.revokeObjectURL(url);
     });

@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const content = await zip.generateAsync({type: 'blob'});
         const link = document.createElement('a');
         link.href = URL.createObjectURL(content);
-        link.download = 'favicons.zip';
+        link.download = 'easy-resources-favicons.zip';
         link.click();
     });
 
@@ -143,7 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         const link = document.createElement('a');
         link.href = canvas.toDataURL('image/x-icon');
-        link.download = 'favicon.ico';
+        link.download = 'easy-resources-favicon.ico';
         link.click();
     });
 
