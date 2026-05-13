@@ -47,6 +47,9 @@
 {"@type":"Question","name":"What size should my QR code be?","acceptedAnswer":{"@type":"Answer","text":"For business cards, 2x2 cm minimum. For posters, at least 3x3 cm. For billboards, scale proportionally. Always test scanning from the intended viewing distance."}}
 ]}
 </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HowTo","name":"How to Create a Custom QR Code","description":"A quick and easy guide to generating a professional, high-resolution QR code with a logo and custom colors.","step":[{"@type":"HowToStep","name":"Select QR Code Type","text":"Choose whether you want to link to a URL, text, email, phone number, SMS, vCard, or WiFi network."},{"@type":"HowToStep","name":"Enter Your Data","text":"Type in the corresponding information for your selected QR code type."},{"@type":"HowToStep","name":"Customize Colors & Style","text":"Select custom foreground and background colors to match your brand."},{"@type":"HowToStep","name":"Upload a Logo","text":"Upload your company logo to embed it securely in the center of the QR code."},{"@type":"HowToStep","name":"Download","text":"Click the download button to save your high-resolution QR code in PNG or SVG format."}]}
+</script>
 <meta property="og:title" content="QR Code Generator — Easy Resources">
 <meta property="og:description" content="Create professional, high-resolution QR codes for free with Easy Resources. Customize colors, add logos, and download in PNG, SVG, or WebP. No watermark, no signup required. Part of the Easy Resources suite of professional tools.">
 <meta property="og:type" content="website">
@@ -163,6 +166,7 @@
           </a>
         </div>
       </div>
+      <a href="../guides/" class="nav-link">Guides</a>
       <a href="../about/" class="nav-link">About</a>
       <a href="../support/" class="nav-link">Support</a>
       <a href="../contact/" class="nav-link">Contact</a>
@@ -482,6 +486,21 @@
 </div>
 </section>
 
+
+  <div class="tool-footer-actions">
+    <div class="share-actions">
+      <span style="font-size:0.875rem; font-weight:600; color:var(--text-soft); margin-right:0.5rem;">Share:</span>
+      <a href="#" class="share-btn" data-platform="twitter" aria-label="Share on Twitter"><i data-lucide="twitter"></i></a>
+      <a href="#" class="share-btn" data-platform="linkedin" aria-label="Share on LinkedIn"><i data-lucide="linkedin"></i></a>
+      <a href="#" class="share-btn" data-platform="facebook" aria-label="Share on Facebook"><i data-lucide="facebook"></i></a>
+      <a href="#" class="share-btn" data-platform="copy" aria-label="Copy Link"><i data-lucide="link"></i></a>
+    </div>
+    <button class="embed-btn" id="openEmbedModal">
+      <i data-lucide="code"></i> Embed this Tool
+    </button>
+  </div>
+
+
 <!-- Related Tools -->
 <section class="related-tools-section">
   <div class="container">
@@ -618,6 +637,20 @@
     document.getElementById('cookie-banner').style.display = 'none';
   });
 </script>
+
+
+<!-- Embed Modal -->
+<div class="modal-overlay" id="embedModal">
+  <div class="modal-content">
+    <button class="modal-close"><i data-lucide="x"></i></button>
+    <h3>Embed this Tool</h3>
+    <p style="font-size:0.875rem; color:var(--text-soft); margin-bottom:1rem;">Copy the code below to embed this free tool on your website.</p>
+    <textarea id="embedCodeTextarea" readonly></textarea>
+    <button class="btn btn-primary" id="copyEmbedCode" style="width: 100%; justify-content: center;"><i data-lucide="copy"></i> Copy Code</button>
+  </div>
+</div>
+
+<script src="../global.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3ELGNX74LY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-3ELGNX74LY');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guides & Tutorials — Easy Resources</title>
+<meta name="description" content="Learn how to optimize your digital assets, create better QR codes, and improve web performance with our free guides and tutorials.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="../global.css">
+<style>
+  .hero-compact {
+    padding: 6rem 0 3rem;
+    text-align: center;
+    background: radial-gradient(circle at 50% -20%, #dbeafe 0%, var(--bg) 60%);
+    margin-bottom: 3rem;
+  }
+  .hero-compact h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: -0.05em; }
+  .hero-compact p { font-size: 1.125rem; color: var(--text-soft); max-width: 600px; margin: 0 auto; }
+  
+  .guides-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 6rem;
+  }
+  .guide-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all 0.3s var(--ease);
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+  }
+  .guide-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent);
+  }
+  .guide-image {
+    width: 100%;
+    height: 200px;
+    background: var(--accent-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent);
+  }
+  .guide-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+  .guide-category {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+  .guide-title {
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    line-height: 1.4;
+  }
+  .guide-excerpt {
+    font-size: 0.95rem;
+    color: var(--text-soft);
+    margin-bottom: 2rem;
+    flex: 1;
+  }
+  .guide-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    color: var(--text-soft);
+    font-weight: 600;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-content">
+    <a href="../" class="logo">Easy<span>Resources</span></a>
+    
+    <div class="menu-toggle" id="mobileMenuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <div class="nav-links" id="navLinks">
+      <div class="nav-item">
+        <a href="#" class="nav-link">Tools <i data-lucide="chevron-down" class="chevron" style="width: 14px; height: 14px;"></i></a>
+        <div class="dropdown">
+          <a href="../qr-code/" class="dropdown-item">
+            <span class="icon"><i data-lucide="smartphone"></i></span>
+            <div class="text">
+              <span class="title">QR Generator</span>
+              <span class="desc">Custom high-res codes</span>
+            </div>
+          </a>
+          <!-- other tools omitted for brevity -->
+        </div>
+      </div>
+      <a href="./" class="nav-link active">Guides</a>
+      <a href="../about/" class="nav-link">About</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section class="hero-compact">
+    <div class="container">
+      <h1>Guides & Tutorials</h1>
+      <p>Master digital optimization, learn best practices, and get the most out of the Easy Resources suite.</p>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="guides-grid">
+      <!-- Guide 1 -->
+      <a href="how-to-create-custom-qr-codes-for-business/" class="guide-card">
+        <div class="guide-image">
+          <i data-lucide="qr-code" style="width: 64px; height: 64px;"></i>
+        </div>
+        <div class="guide-content">
+          <span class="guide-category">Marketing</span>
+          <h2 class="guide-title">How to Create Custom QR Codes for Your Business</h2>
+          <p class="guide-excerpt">Learn how to generate professional, trackable QR codes with logos and custom colors to bridge the gap between physical and digital marketing.</p>
+          <div class="guide-footer">
+            <span>Read guide <i data-lucide="arrow-right" style="width: 14px; height: 14px; display: inline-block; vertical-align: middle; margin-left: 4px;"></i></span>
+            <span>5 min read</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Guide 2 -->
+      <a href="understanding-image-compression-png-vs-jpeg/" class="guide-card">
+        <div class="guide-image">
+          <i data-lucide="image" style="width: 64px; height: 64px;"></i>
+        </div>
+        <div class="guide-content">
+          <span class="guide-category">Web Performance</span>
+          <h2 class="guide-title">Understanding Image Compression: PNG vs JPEG vs WebP</h2>
+          <p class="guide-excerpt">A comprehensive guide to choosing the right image format for your website and how to compress them without losing visual quality.</p>
+          <div class="guide-footer">
+            <span>Read guide <i data-lucide="arrow-right" style="width: 14px; height: 14px; display: inline-block; vertical-align: middle; margin-left: 4px;"></i></span>
+            <span>7 min read</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Guide 3 -->
+      <a href="ultimate-guide-to-svg-optimization/" class="guide-card">
+        <div class="guide-image">
+          <i data-lucide="ruler" style="width: 64px; height: 64px;"></i>
+        </div>
+        <div class="guide-content">
+          <span class="guide-category">Development</span>
+          <h2 class="guide-title">The Ultimate Guide to SVG Optimization</h2>
+          <p class="guide-excerpt">Discover how to clean, minify, and optimize Scalable Vector Graphics for lightning-fast web performance and perfectly crisp icons.</p>
+          <div class="guide-footer">
+            <span>Read guide <i data-lucide="arrow-right" style="width: 14px; height: 14px; display: inline-block; vertical-align: middle; margin-left: 4px;"></i></span>
+            <span>6 min read</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <a href="../" class="logo">Easy<span>Resources</span></a>
+        <p>Providing the world with free, professional-grade digital utilities.</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Easy Resources. Built for developers & creators.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  lucide.createIcons();
+  document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+    this.classList.toggle('active');
+    document.getElementById('navLinks').classList.toggle('active');
+  });
+</script>
+<script src="../global.js"></script>
+</body>
+</html>

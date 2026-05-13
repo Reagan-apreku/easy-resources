@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Ultimate Guide to SVG Optimization — Easy Resources</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="../../global.css">
+<style>
+  .article-header { padding: 6rem 0 3rem; text-align: center; background: #fafafa; border-bottom: 1px solid #e5e7eb; margin-bottom: 4rem; }
+  .article-category { font-size: 0.875rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; display: block; }
+  .article-title { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.04em; max-width: 800px; margin: 0 auto 1.5rem; }
+  .article-meta { color: var(--text-soft); font-size: 0.95rem; font-weight: 500; }
+  .article-content { max-width: 720px; margin: 0 auto 6rem; font-size: 1.125rem; line-height: 1.8; color: #374151; }
+  .article-content h2 { font-size: 2rem; font-weight: 700; color: #111827; margin: 3rem 0 1.5rem; letter-spacing: -0.02em; }
+  .article-content p { margin-bottom: 1.5rem; }
+  .article-content .tool-cta { background: var(--accent-soft); border: 1px solid var(--accent); padding: 2rem; border-radius: 16px; margin: 3rem 0; text-align: center; }
+</style>
+</head>
+<body>
+<nav>
+  <div class="container nav-content">
+    <a href="../../" class="logo">Easy<span>Resources</span></a>
+    <div class="nav-links"><a href="../" class="nav-link active">Guides</a></div>
+  </div>
+</nav>
+
+<header class="article-header">
+  <div class="container">
+    <span class="article-category">Development</span>
+    <h1 class="article-title">The Ultimate Guide to SVG Optimization</h1>
+    <div class="article-meta">Published May 13, 2026 • 6 min read</div>
+  </div>
+</header>
+
+<main class="container">
+  <article class="article-content">
+    <p>Scalable Vector Graphics (SVG) are the gold standard for icons, logos, and illustrations on the web. Unlike pixel-based formats like PNG, SVGs are actually written in XML code—meaning they scale infinitely without losing quality.</p>
+    
+    <h2>Why Optimize SVGs?</h2>
+    <p>When you export an SVG from a design tool like Adobe Illustrator or Figma, the resulting code is often bloated with unnecessary metadata, hidden layers, editor artifacts, and empty groups. This extra code inflates the file size and slows down the browser's rendering engine.</p>
+
+    <div class="tool-cta">
+      <h3 style="color:var(--accent); font-size:1.25rem; margin-bottom:0.5rem">Clean your SVGs automatically</h3>
+      <p>Remove bloated code, minify paths, and reduce SVG file sizes instantly.</p><br>
+      <a href="../../svg-optimizer/" class="btn btn-primary">Open SVG Optimizer</a>
+    </div>
+
+    <h2>How SVG Optimization Works</h2>
+    <p>A good optimization process will perform several highly technical cleanups on the raw XML code:</p>
+    <ul>
+      <li><strong>Removing Editor Metadata:</strong> Deleting Adobe or Sketch specific XML tags that browsers ignore.</li>
+      <li><strong>Minifying Attributes:</strong> Rounding long decimal numbers (e.g., 1.00000004 to 1) in path coordinates.</li>
+      <li><strong>Removing Empty Elements:</strong> Stripping out `<g>` tags that don't contain any shapes.</li>
+      <li><strong>Combining Paths:</strong> Merging multiple shapes into a single compound path to reduce DOM nodes.</li>
+    </ul>
+    <p>By optimizing your SVGs, you guarantee perfectly crisp graphics alongside lightning-fast load times.</p>
+  </article>
+</main>
+<script>lucide.createIcons();</script>
+<script src="../../global.js"></script>
+</body>
+</html>
