@@ -505,20 +505,95 @@
   lucide.createIcons();
 </script>
 
-<!-- Cookie Banner -->
-<div id="cookie-banner" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #111; color: white; padding: 1rem 2rem; border-radius: 100px; z-index: 9999; box-shadow: 0 10px 25px rgba(0,0,0,0.2); align-items: center; gap: 1.5rem; width: max-content; max-width: 90vw; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.875rem;">
-  <p style="margin: 0; display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="cookie" style="width: 18px; height: 18px; color: #fbbf24;"></i> We use cookies to analyze site traffic. <a href="../privacy/" style="color: #60a5fa; text-decoration: none;">Learn more</a></p>
-  <button id="accept-cookies" style="background: white; color: black; border: none; padding: 0.5rem 1.25rem; border-radius: 100px; font-weight: 700; cursor: pointer; transition: transform 0.2s;">Got it</button>
-</div>
-<script>
-  if (!localStorage.getItem('cookiesAccepted')) {
-    document.getElementById('cookie-banner').style.display = 'flex';
-  }
-  document.getElementById('accept-cookies').addEventListener('click', () => {
-    localStorage.setItem('cookiesAccepted', 'true');
-    document.getElementById('cookie-banner').style.display = 'none';
-  });
-</script>
 
+  <!-- Internal Linking: Related Guide -->
+  <div class="container">
+    <div class="related-guide-box">
+      <span class="related-guide-tag">Deep Dive Guide</span>
+      <h3>Color Theory Fundamentals for Web Designers</h3>
+      <p>Learn how to create harmonious color schemes that evoke the right emotions and improve site accessibility.</p>
+      <a href="../blog/color-theory-for-web-designers/" class="guide-btn">
+        Read the Full Guide <i data-lucide="arrow-right"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Related Tools -->
+  <section class="related-tools-section">
+    <div class="container">
+      <h3>Related Tools</h3>
+      <div class="related-tools-grid">
+        <a href="../qr-code/" class="related-tool-card">
+          <div class="tool-icon"><i data-lucide="qr-code"></i></div>
+          <h4>QR Code Generator</h4>
+          <p>Create custom, trackable QR codes for your links and media.</p>
+        </a>
+        <a href="../color-palette-extractor/" class="related-tool-card">
+          <div class="tool-icon"><i data-lucide="brush"></i></div>
+          <h4>Palette Extractor</h4>
+          <p>Extract beautiful color schemes from any image instantly.</p>
+        </a>
+        <a href="../favicon-generator/" class="related-tool-card">
+          <div class="tool-icon"><i data-lucide="link"></i></div>
+          <h4>Favicon Generator</h4>
+          <p>Generate professional icons for all platforms.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="../" class="logo">Easy<span>Resources</span></a>
+          <p>Providing the world with free, professional-grade digital utilities. Part of the Easy Resources suite.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Tools</h4>
+          <ul>
+            <li><a href="../qr-code/">QR Generator</a></li>
+            <li><a href="../images-to-pdf/">PDF Converter</a></li>
+            <li><a href="../image-compressor/">Image Compressor</a></li>
+            <li><a href="../lorem-ipsum/">Lorem Ipsum</a></li>
+            <li><a href="../json-formatter/">JSON Formatter</a></li>
+            <li><a href="../color-palette-generator/">Palette Generator</a></li>
+            <li><a href="../favicon-generator/">Favicon Generator</a></li>
+            <li><a href="../password-generator/">Password Generator</a></li>
+            <li><a href="../image-converter/">Image Converter</a></li>
+            <li><a href="../barcode-generator/">Barcode Generator</a></li>
+            <li><a href="../color-palette-extractor/">Palette Extractor</a></li>
+            <li><a href="../svg-optimizer/">SVG Optimizer</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="../about/">About Us</a></li>
+            <li><a href="../support/">Support</a></li>
+            <li><a href="../contact/">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="../privacy/">Privacy Policy</a></li>
+            <li><a href="../terms/">Terms of Use</a></li>
+            <li><a href="../privacy/">Cookie Policy</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Easy Resources. Built for developers & creators.</p>
+        <div class="footer-socials">
+          <a href="#"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="lucide-github" style="display:inline-block;vertical-align:middle;"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a>
+          <a href="#"><svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="lucide-twitter" style="display:inline-block;vertical-align:middle;"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../global.js"></script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>
