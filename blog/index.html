@@ -7,92 +7,225 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-3ELGNX74LY');
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Guides & Tutorials — Easy Resources</title>
+<title>Blog — Easy Resources</title>
 <meta name="description" content="Learn how to optimize your digital assets, create better QR codes, and improve web performance with our free guides and tutorials.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/lucide@latest"></script>
 <link rel="stylesheet" href="../global.css">
 <style>
-  .hero-compact {
-    padding: 6rem 0 3rem;
+  /* Editorial Magazine Layout */
+  body {
+    background: #ffffff; /* Clean white for editorial */
+  }
+  .magazine-container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 2rem 1rem 6rem;
+  }
+  .mag-header {
     text-align: center;
-    background: radial-gradient(circle at 50% -20%, #dbeafe 0%, var(--bg) 60%);
+    padding: 3rem 0;
+    border-bottom: 2px solid #111;
     margin-bottom: 3rem;
   }
-  .hero-compact h1 { font-size: 3rem; font-weight: 800; margin-bottom: 1rem; letter-spacing: -0.05em; }
-  .hero-compact p { font-size: 1.125rem; color: var(--text-soft); max-width: 600px; margin: 0 auto; }
-  
-  .guides-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 2rem;
-    margin-bottom: 6rem;
-  }
-  .guide-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-    transition: all 0.3s var(--ease);
-    display: flex;
-    flex-direction: column;
-    text-decoration: none;
-    color: inherit;
-  }
-  .guide-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--accent);
-  }
-  .guide-image {
-    width: 100%;
-    height: 200px;
-    background: var(--accent-soft);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--accent);
-  }
-  .guide-content {
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-  .guide-category {
-    font-size: 0.75rem;
-    font-weight: 700;
+  .mag-logo {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 900;
+    letter-spacing: -0.05em;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--accent);
-    margin-bottom: 1rem;
+    color: #111;
   }
-  .guide-title {
+
+  .mag-top-section {
+    display: grid;
+    grid-template-columns: 1fr 2.5fr 1fr;
+    gap: 3rem;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 4rem;
+    margin-bottom: 4rem;
+  }
+  @media (max-width: 1024px) {
+    .mag-top-section {
+      grid-template-columns: 1fr;
+      gap: 4rem;
+    }
+  }
+
+  /* Common Text */
+  .mag-cat {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: var(--accent, #2563eb);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  .mag-meta {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin-bottom: 0.75rem;
+  }
+  .mag-title {
     font-size: 1.25rem;
     font-weight: 800;
-    margin-bottom: 1rem;
-    line-height: 1.4;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+    color: #111;
+    transition: color 0.2s;
   }
-  .guide-excerpt {
-    font-size: 0.95rem;
-    color: var(--text-soft);
+  .mag-title-small {
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 0.25rem;
+    color: #111;
+    transition: color 0.2s;
+  }
+  a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  a:hover .mag-title, a:hover .mag-featured-title, a:hover .mag-title-small {
+    color: var(--accent);
+  }
+
+  /* Left Column */
+  .mag-left {
+    border-right: 1px solid #e5e7eb;
+    padding-right: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+  @media (max-width: 1024px) {
+    .mag-left { border-right: none; padding-right: 0; border-bottom: 1px solid #e5e7eb; padding-bottom: 3rem; }
+  }
+  .mag-side-post .mag-image {
+    width: 100%;
+    height: 180px;
+    background-size: cover;
+    background-position: center;
+    margin-top: 1rem;
+    background-color: #f3f4f6;
+  }
+
+  /* Center Column */
+  .mag-center {
+    padding: 0 1rem;
+    text-align: center;
+  }
+  .mag-featured-image {
+    width: 100%;
+    height: 450px;
+    background-size: cover;
+    background-position: center;
     margin-bottom: 2rem;
+    background-color: #f3f4f6;
+  }
+  .mag-featured-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    color: #111;
+    transition: color 0.2s;
+    letter-spacing: -0.03em;
+  }
+  .mag-excerpt {
+    font-size: 1.125rem;
+    color: #4b5563;
+    line-height: 1.6;
+    max-width: 80%;
+    margin: 0 auto 1.5rem;
+  }
+  @media (max-width: 768px) {
+    .mag-excerpt { max-width: 100%; }
+    .mag-featured-image { height: 300px; }
+  }
+
+  /* Right Column */
+  .mag-right {
+    border-left: 1px solid #e5e7eb;
+    padding-left: 2rem;
+  }
+  @media (max-width: 1024px) {
+    .mag-right { border-left: none; padding-left: 0; }
+  }
+  .mag-section-title {
+    font-size: 0.875rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #111;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .view-all {
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-weight: 600;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  .view-all:hover {
+    text-decoration: underline;
+  }
+  .mag-latest-post a {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    align-items: flex-start;
+  }
+  .mag-latest-text {
     flex: 1;
   }
-  .guide-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 0.875rem;
-    color: var(--text-soft);
-    font-weight: 600;
+  .mag-latest-thumb {
+    width: 100px;
+    height: 100px;
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
+    background-color: #f3f4f6;
+  }
+
+  /* Bottom Row Grid */
+  .mag-row-section {
+    margin-bottom: 4rem;
+  }
+  .mag-row-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  @media (max-width: 1024px) {
+    .mag-row-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .mag-row-grid { grid-template-columns: 1fr; }
+  }
+  .mag-grid-post .mag-image-tall {
+    width: 100%;
+    height: 220px;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 1.5rem;
+    background-color: #f3f4f6;
+  }
+  .mag-excerpt-small {
+    font-size: 0.95rem;
+    color: #4b5563;
+    line-height: 1.5;
   }
 </style>
 </head>
@@ -119,7 +252,20 @@
               <span class="desc">Custom high-res codes</span>
             </div>
           </a>
-          <!-- other tools omitted for brevity -->
+          <a href="../barcode-generator/" class="dropdown-item">
+            <span class="icon"><i data-lucide="barcode"></i></span>
+            <div class="text">
+              <span class="title">Barcode Generator</span>
+              <span class="desc">1D & 2D formats</span>
+            </div>
+          </a>
+          <a href="../image-compressor/" class="dropdown-item">
+            <span class="icon"><i data-lucide="minimize"></i></span>
+            <div class="text">
+              <span class="title">Image Compressor</span>
+              <span class="desc">Reduce file sizes</span>
+            </div>
+          </a>
         </div>
       </div>
       <a href="./" class="nav-link active">Blog</a>
@@ -128,59 +274,136 @@
   </div>
 </nav>
 
-<main>
-  <section class="hero-compact">
-    <div class="container">
-      <h1>Guides & Tutorials</h1>
-      <p>Master digital optimization, learn best practices, and get the most out of the Easy Resources suite.</p>
+<main class="magazine-container">
+  
+  <div class="mag-header">
+    <div class="mag-logo">THE RESOURCE</div>
+  </div>
+  
+  <div class="mag-top-section">
+    <!-- Left Column -->
+    <div class="mag-left">
+      <div class="mag-side-post">
+        <a href="ultimate-guide-to-svg-optimization/">
+          <span class="mag-cat">DEVELOPMENT</span>
+          <h3 class="mag-title">The Ultimate Guide to SVG Optimization</h3>
+          <div class="mag-meta">May 13, 2026</div>
+          <div class="mag-image" style="background-image: url('../assets/blog/svg_optimization_hero.png');"></div>
+        </a>
+      </div>
+      <!-- Dummy post -->
+      <div class="mag-side-post">
+        <a href="#">
+          <span class="mag-cat">DESIGN</span>
+          <h3 class="mag-title">Color Theory for Developers</h3>
+          <div class="mag-meta">May 12, 2026</div>
+          <div class="mag-image" style="background-image: linear-gradient(135deg, #f6d365 0%, #fda085 100%);"></div>
+        </a>
+      </div>
     </div>
-  </section>
 
-  <section class="container">
-    <div class="guides-grid">
-      <!-- Guide 1 -->
-      <a href="how-to-create-custom-qr-codes-for-business/" class="guide-card">
-        <div class="guide-image" style="background-image: url('../assets/blog/qr_code_hero.png'); background-size: cover; background-position: center;"></div>
-        <div class="guide-content">
-          <span class="guide-category">Marketing</span>
-          <h2 class="guide-title">How to Create Custom QR Codes for Your Business</h2>
-          <p class="guide-excerpt">Learn how to generate professional, trackable QR codes with logos and custom colors to bridge the gap between physical and digital marketing.</p>
-          <div class="guide-footer">
-            <span>Read guide <i data-lucide="arrow-right" style="width: 14px; height: 14px; display: inline-block; vertical-align: middle; margin-left: 4px;"></i></span>
-            <span>5 min read</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Guide 2 -->
-      <a href="understanding-image-compression-png-vs-jpeg/" class="guide-card">
-        <div class="guide-image" style="background-image: url('../assets/blog/image_compression_hero.png'); background-size: cover; background-position: center;"></div>
-        <div class="guide-content">
-          <span class="guide-category">Web Performance</span>
-          <h2 class="guide-title">Understanding Image Compression: PNG vs JPEG vs WebP</h2>
-          <p class="guide-excerpt">A comprehensive guide to choosing the right image format for your website and how to compress them without losing visual quality.</p>
-          <div class="guide-footer">
-            <span>Read guide <i data-lucide="arrow-right" style="width: 14px; height: 14px; display: inline-block; vertical-align: middle; margin-left: 4px;"></i></span>
-            <span>7 min read</span>
-          </div>
-        </div>
-      </a>
-
-      <!-- Guide 3 -->
-      <a href="ultimate-guide-to-svg-optimization/" class="guide-card">
-        <div class="guide-image" style="background-image: url('../assets/blog/svg_optimization_hero.png'); background-size: cover; background-position: center;"></div>
-        <div class="guide-content">
-          <span class="guide-category">Development</span>
-          <h2 class="guide-title">The Ultimate Guide to SVG Optimization</h2>
-          <p class="guide-excerpt">Discover how to clean, minify, and optimize Scalable Vector Graphics for lightning-fast web performance and perfectly crisp icons.</p>
-          <div class="guide-footer">
-            <span>Read guide <i data-lucide="arrow-right" style="width: 14px; height: 14px; display: inline-block; vertical-align: middle; margin-left: 4px;"></i></span>
-            <span>6 min read</span>
-          </div>
-        </div>
+    <!-- Center Column (Featured) -->
+    <div class="mag-center">
+      <a href="how-to-create-custom-qr-codes-for-business/">
+        <div class="mag-featured-image" style="background-image: url('../assets/blog/qr_code_hero.png');"></div>
+        <span class="mag-cat">MARKETING</span>
+        <h2 class="mag-featured-title">How to Create Custom QR Codes for Your Business</h2>
+        <p class="mag-excerpt">Learn how to generate professional, trackable QR codes with logos and custom colors to bridge the gap between physical and digital marketing.</p>
+        <div class="mag-meta">May 13, 2026 &nbsp;&nbsp;|&nbsp;&nbsp; By Easy Resources</div>
       </a>
     </div>
-  </section>
+
+    <!-- Right Column (Latest) -->
+    <div class="mag-right">
+      <h3 class="mag-section-title">LATEST</h3>
+      
+      <div class="mag-latest-post">
+        <a href="understanding-image-compression-png-vs-jpeg/">
+          <div class="mag-latest-text">
+            <h4 class="mag-title-small">Understanding Image Compression: PNG vs JPEG</h4>
+            <div class="mag-meta">May 13, 2026</div>
+          </div>
+          <div class="mag-latest-thumb" style="background-image: url('../assets/blog/image_compression_hero.png');"></div>
+        </a>
+      </div>
+
+      <!-- Dummy Post -->
+      <div class="mag-latest-post">
+        <a href="#">
+          <div class="mag-latest-text">
+            <h4 class="mag-title-small">JSON Formatting Best Practices</h4>
+            <div class="mag-meta">May 11, 2026</div>
+          </div>
+          <div class="mag-latest-thumb" style="background-image: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);"></div>
+        </a>
+      </div>
+
+      <!-- Dummy Post -->
+      <div class="mag-latest-post">
+        <a href="#">
+          <div class="mag-latest-text">
+            <h4 class="mag-title-small">Password Security in 2026</h4>
+            <div class="mag-meta">May 10, 2026</div>
+          </div>
+          <div class="mag-latest-thumb" style="background-image: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);"></div>
+        </a>
+      </div>
+      
+      <!-- Dummy Post -->
+      <div class="mag-latest-post">
+        <a href="#">
+          <div class="mag-latest-text">
+            <h4 class="mag-title-small">Lorem Ipsum: The History of Placeholder Text</h4>
+            <div class="mag-meta">May 9, 2026</div>
+          </div>
+          <div class="mag-latest-thumb" style="background-image: linear-gradient(135deg, #fccb90 0%, #d57eeb 100%);"></div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Row: Development -->
+  <div class="mag-row-section">
+    <h3 class="mag-section-title">DEVELOPMENT <a href="#" class="view-all">View all &raquo;</a></h3>
+    <div class="mag-row-grid">
+      <div class="mag-grid-post">
+        <a href="#">
+          <div class="mag-image-tall" style="background-image: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);"></div>
+          <span class="mag-cat">DEVELOPMENT</span>
+          <h4 class="mag-title">Building a Fast SVG Optimizer</h4>
+          <div class="mag-meta">May 9, 2026</div>
+          <p class="mag-excerpt-small">How we built our custom client-side optimization engine entirely in JavaScript.</p>
+        </a>
+      </div>
+      <div class="mag-grid-post">
+        <a href="#">
+          <div class="mag-image-tall" style="background-image: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+          <span class="mag-cat">DEVELOPMENT</span>
+          <h4 class="mag-title">Local-First Architecture</h4>
+          <div class="mag-meta">May 8, 2026</div>
+          <p class="mag-excerpt-small">Why all our tools run securely in your browser without tracking or database dependency.</p>
+        </a>
+      </div>
+      <div class="mag-grid-post">
+        <a href="#">
+          <div class="mag-image-tall" style="background-image: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+          <span class="mag-cat">DEVELOPMENT</span>
+          <h4 class="mag-title">The Future of PWA Apps</h4>
+          <div class="mag-meta">May 7, 2026</div>
+          <p class="mag-excerpt-small">Progressive web apps are replacing native desktop software for utility applications.</p>
+        </a>
+      </div>
+      <div class="mag-grid-post">
+        <a href="#">
+          <div class="mag-image-tall" style="background-image: linear-gradient(135deg, #5ee7df 0%, #b490ca 100%);"></div>
+          <span class="mag-cat">DEVELOPMENT</span>
+          <h4 class="mag-title">Mastering Flexbox & Grid</h4>
+          <div class="mag-meta">May 6, 2026</div>
+          <p class="mag-excerpt-small">A comprehensive guide to modern CSS layout techniques and responsive design.</p>
+        </a>
+      </div>
+    </div>
+  </div>
 </main>
 
 <footer>
