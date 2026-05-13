@@ -408,3 +408,26 @@ body.embed-mode {
   background: transparent;
   padding: 0;
 }
+
+/* AdSense Container */
+.ad-container {
+  width: 100%;
+  background-color: #f8fafc;
+  border: 1px dashed #cbd5e1;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin: 3rem 0;
+  color: #94a3b8;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 8px;
+  position: relative;
+}
+.ad-container::before {
+  content: 'Advertisement';
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
