@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>When to Use WebP vs PNG vs JPEG — Easy Resources</title>
+<meta name="description" content="A comprehensive developer's guide to modern image file formats, compression algorithms, and when to use which format.">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
+<link rel="stylesheet" href="../../global.css">
+<style>
+  .article-header { padding: 6rem 0 3rem; text-align: center; background: #fafafa; border-bottom: 1px solid #e5e7eb; margin-bottom: 4rem; }
+  .article-category { font-size: 0.875rem; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1rem; display: block; }
+  .article-title { font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 800; line-height: 1.1; letter-spacing: -0.04em; max-width: 800px; margin: 0 auto 1.5rem; }
+  .article-meta { color: var(--text-soft); font-size: 0.95rem; font-weight: 500; }
+  .article-content { max-width: 720px; margin: 0 auto 6rem; font-size: 1.125rem; line-height: 1.8; color: #374151; }
+  .article-content h2 { font-size: 2rem; font-weight: 700; color: #111827; margin: 3rem 0 1.5rem; letter-spacing: -0.02em; }
+  .article-content p { margin-bottom: 1.5rem; }
+  .article-content ul { margin-bottom: 1.5rem; padding-left: 1.5rem; }
+  .article-content li { margin-bottom: 0.5rem; }
+  .article-content .tool-cta { background: var(--accent-soft); border: 1px solid var(--accent); padding: 2rem; border-radius: 16px; margin: 3rem 0; text-align: center; }
+  .article-content .tool-cta h3 { color: var(--accent); margin-bottom: 0.5rem; font-size: 1.25rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-content">
+    <a href="../../" class="logo">Easy<span>Resources</span></a>
+    <div class="nav-links">
+      <a href="../" class="nav-link active">Blog</a>
+    </div>
+  </div>
+</nav>
+
+<header class="article-header">
+  <div class="container">
+    <span class="article-category">Web Performance</span>
+    <h1 class="article-title">When to Use WebP vs PNG vs JPEG</h1>
+    <div class="article-meta">Published May 13, 2026 • 6 min read</div>
+  </div>
+</header>
+
+<div class="container">
+  <div style="width:100%; height:500px; background-image:url('../../assets/blog/image_converter_hero.png'); background-size:cover; background-position:center; border-radius:24px; margin-top:-6rem; margin-bottom:4rem; box-shadow:0 25px 50px -12px rgba(0,0,0,0.25); position:relative; z-index:10;"></div>
+</div>
+
+<main class="container">
+  <article class="article-content">
+    <p>Choosing the right image format is crucial for web performance. Making the wrong choice can lead to massive file sizes that slow down your site and ruin your SEO.</p>
+    <h2>The Big Three</h2>
+    <ul>
+      <li><strong>JPEG:</strong> Best for photographs. Uses lossy compression to achieve small file sizes but does not support transparency.</li>
+      <li><strong>PNG:</strong> Best for graphics with flat colors, text, or logos. It supports alpha-channel transparency and uses lossless compression (higher quality, but much larger file sizes).</li>
+      <li><strong>WebP:</strong> The modern standard developed by Google. It supports both lossy and lossless compression, AND transparency, often at file sizes 30% smaller than JPEG or PNG.</li>
+    </ul>
+    <div class="tool-cta">
+      <h3>Convert Your Images Easily</h3>
+      <p>Use our client-side image converter to switch between JPEG, PNG, and WebP instantly.</p>
+      <br>
+      <a href="../../image-converter/" class="btn btn-primary">Go to Image Converter</a>
+    </div>
+    <h2>The Verdict</h2>
+    <p>Whenever possible, serve your images as WebP. All modern browsers now support it, and the bandwidth savings are simply too good to ignore. If you have legacy constraints, fall back to JPEG for photos and PNG for transparent graphics.</p>
+  </article>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-content" style="text-align: center;">
+      <a href="../../" class="logo" style="justify-content: center;">Easy<span>Resources</span></a>
+      <p style="margin: 1rem auto 0; max-width: 400px; color: #94a3b8;">Providing the world with free, professional-grade digital utilities.</p>
+    </div>
+  </div>
+</footer>
+
+<script>lucide.createIcons();</script>
+<script src="../../global.js"></script>
+</body>
+</html>
