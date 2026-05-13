@@ -24,6 +24,10 @@ document.addEventListener('DOMContentLoaded', () => {
         shareUrl = `https://www.linkedin.com/sharing/share-offsite/?url=${url}`;
       } else if (platform === 'facebook') {
         shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${url}`;
+      } else if (platform === 'whatsapp') {
+        shareUrl = `https://api.whatsapp.com/send?text=${title}%20${url}`;
+      } else if (platform === 'telegram') {
+        shareUrl = `https://t.me/share/url?url=${url}&text=${title}`;
       } else if (platform === 'copy') {
         navigator.clipboard.writeText(window.location.href.split('?')[0]).then(() => {
           const icon = btn.querySelector('i');
