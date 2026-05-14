@@ -37,10 +37,11 @@
 .generator{background:linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
   border-top:1px solid var(--border);padding-bottom:var(--3xl)}
 .generator .section-header{margin-bottom:var(--2xl)}
-.generator-layout{display:grid;grid-template-columns:1fr 400px;gap:var(--2xl);align-items:start}
+.generator-layout{display:grid;grid-template-columns:1fr 400px;gap:var(--2xl);align-items:start;width:100%}
 @media(max-width:1279px){.generator-layout{grid-template-columns:1fr 360px}}
-@media(max-width:1023px){.generator-layout{grid-template-columns:1fr}}
+@media(max-width:991px){.generator-layout{grid-template-columns:1fr}}
 .generator-form{display:flex;flex-direction:column;gap:0;min-width:0}
+.preview-panel{min-width:0}
 .type-selector{margin-bottom:var(--lg)}
 
 /* ===== QR Type Tabs ===== */
