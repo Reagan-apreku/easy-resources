@@ -252,5 +252,25 @@
 </main>
 <script>lucide.createIcons();</script>
 <script src="../../global.js"></script>
+
+<!-- Omni-Search Modal -->
+<div id="searchModal" class="search-modal">
+  <div class="search-container">
+    <div class="search-header">
+      <div class="search-input-wrapper">
+        <i data-lucide="search" style="width:20px;height:20px;color:var(--gl-text-soft)"></i>
+        <input type="text" id="searchMainInput" class="search-main-input" placeholder="Search for tools or guides..." autocomplete="off">
+      </div>
+      <div class="search-k-badge">ESC</div>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+    <div class="search-footer">
+      <span><kbd>↑↓</kbd> to navigate</span>
+      <span><kbd>Enter</kbd> to select</span>
+      <span><kbd>Esc</kbd> to close</span>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>

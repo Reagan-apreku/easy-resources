@@ -315,7 +315,13 @@
     </div>
     
     <div class="nav-actions desktop-only">
-      <a href="../donate/index.html" class="nav-cta">Donate</a>
+      
+      <button class="nav-search-btn desktop-only" style="margin-right: 1rem;">
+        <i data-lucide="search" style="width:16px;height:16px;"></i>
+        <span>Search</span>
+        <span class="search-k-badge" style="margin-left:0.5rem;font-size:0.65rem;padding:0.1rem 0.3rem">⌘K</span>
+      </button>
+<a href="../donate/index.html" class="nav-cta">Donate</a>
     </div>
   </div>
 </nav>
@@ -599,5 +605,25 @@
 
   <script src="../global.js"></script>
   <script>lucide.createIcons();</script>
+
+<!-- Omni-Search Modal -->
+<div id="searchModal" class="search-modal">
+  <div class="search-container">
+    <div class="search-header">
+      <div class="search-input-wrapper">
+        <i data-lucide="search" style="width:20px;height:20px;color:var(--gl-text-soft)"></i>
+        <input type="text" id="searchMainInput" class="search-main-input" placeholder="Search for tools or guides..." autocomplete="off">
+      </div>
+      <div class="search-k-badge">ESC</div>
+    </div>
+    <div id="searchResults" class="search-results"></div>
+    <div class="search-footer">
+      <span><kbd>↑↓</kbd> to navigate</span>
+      <span><kbd>Enter</kbd> to select</span>
+      <span><kbd>Esc</kbd> to close</span>
+    </div>
+  </div>
+</div>
+
 </body>
 </html>
