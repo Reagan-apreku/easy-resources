@@ -142,9 +142,20 @@
       <a href="../about/index.html" class="nav-link">About</a>
       <a href="../support/index.html" class="nav-link">Support</a>
       <a href="../contact/index.html" class="nav-link">Contact</a>
-      <a href="../donate/index.html" class="nav-cta mobile-only">Donate</a>
+      
+      <button class="nav-search-btn mobile-only" style="width:100%; margin-bottom: 1rem; justify-content: center; padding: 1rem;">
+        <i data-lucide="search" style="width:18px;height:18px;"></i>
+        <span>Search Tools</span>
+      </button>
+<a href="../donate/index.html" class="nav-cta mobile-only">Donate</a>
     </div>
-    <a href="../donate/index.html" class="nav-cta desktop-only">Donate</a>
+    
+      <button class="nav-search-btn desktop-only" style="margin-right: 1rem;">
+        <i data-lucide="search" style="width:16px;height:16px;"></i>
+        <span>Search</span>
+        <span class="search-k-badge" style="margin-left:0.5rem;font-size:0.65rem;padding:0.1rem 0.3rem">⌘K</span>
+      </button>
+<a href="../donate/index.html" class="nav-cta desktop-only">Donate</a>
   </div>
 </nav>
 
@@ -375,7 +386,7 @@
 </script>
 
 <!-- Cookie Banner -->
-<div id="cookie-banner" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #111; color: white; padding: 1rem 2rem; border-radius: 100px; z-index: 9999; box-shadow: 0 10px 25px rgba(0,0,0,0.2); align-items: center; gap: 1.5rem; width: max-content; max-width: 90vw; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.875rem;">
+<div id="cookie-banner" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #111; color: white; padding: 1rem 2rem; border-radius: 100px; z-index: 9999; box-shadow: 0 10px 25px rgba(0,0,0,0.2); align-items: center; gap: 1.5rem; width: calc(100% - 40px); max-width: 600px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.875rem;">
   <p style="margin: 0; display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="cookie" style="width: 18px; height: 18px; color: #fbbf24;"></i> We use cookies to analyze site traffic. <a href="../privacy/index.html" style="color: #60a5fa; text-decoration: none;">Learn more</a></p>
   <button id="accept-cookies" style="background: white; color: black; border: none; padding: 0.5rem 1.25rem; border-radius: 100px; font-weight: 700; cursor: pointer; transition: transform 0.2s;">Got it</button>
 </div>
