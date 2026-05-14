@@ -191,7 +191,9 @@
 
 <!-- Generator -->
 <section class="generator section" id="generator">
-<div class="container">
+  <div class="container">
+    
+
   <div class="ad-container ad-banner-top">
   <div class="ad-label">Advertisement</div>
   <ins class="adsbygoogle"
@@ -202,9 +204,9 @@
        data-full-width-responsive="true"></ins>
   <script>window.initEasyAds ? window.initEasyAds() : (adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
-  </div>
 
-  <div class="section-header">
+  <div class="container">
+    <div class="section-header">
     <p class="label">Professional QR Generator</p>
     <h1 class="heading-lg">QR Code Generator — High Resolution & Custom Logos</h1>
     <p>The premium free tool to generate professional QR codes. Part of the Easy Resources tool suite.</p>
@@ -228,7 +230,6 @@
           <button class="tab-btn" data-type="crypto" role="tab"><span class="tab-icon"><i data-lucide="bitcoin"></i></span>Crypto</button>
           <button class="tab-btn" data-type="social" role="tab"><span class="tab-icon"><i data-lucide="share-2"></i></span>Social Links</button>
         </div>
-      </div>
 
       <div class="form-panel" id="form-fields"></div>
 
@@ -244,7 +245,6 @@
               <div class="color-picker-wrapper"><input type="color" id="dot-color" value="#1B3A4B"></div>
               <span class="text-sm">QR Code Color</span>
             </div>
-          </div>
           <div class="color-presets">
             <button class="color-preset active" data-fg="#1B3A4B" style="background:#1B3A4B" title="Navy"></button>
             <button class="color-preset" data-fg="#000000" style="background:#000000" title="Classic"></button>
@@ -255,7 +255,6 @@
             <button class="color-preset" data-fg="#7C3AED" style="background:#7C3AED" title="Violet"></button>
             <button class="color-preset" data-fg="#0D9488" style="background:#0D9488" title="Teal"></button>
           </div>
-        </div>
 
         <!-- Dot & Corner Style -->
         <div class="custom-group">
@@ -274,7 +273,6 @@
             <button class="style-option corner-style-btn active" data-style="extra-rounded" title="Rounded"><i data-lucide="circle" style="width: 14px; height: 14px;"></i></button>
             <button class="style-option corner-style-btn" data-style="dot" title="Dot"><i data-lucide="disc" style="width: 14px; height: 14px;"></i></button>
           </div>
-        </div>
 
         <!-- Logo Upload -->
         <div class="custom-group">
@@ -286,7 +284,6 @@
             <input type="file" id="logo-input" accept="image/*">
             <button id="logo-remove" class="btn btn-sm btn-ghost" style="position:absolute;top:4px;right:4px;display:none;z-index:2"><i data-lucide="x" style="width: 14px; height: 14px;"></i></button>
           </div>
-        </div>
 
         <!-- Error Correction & Size -->
         <div class="custom-group">
@@ -309,10 +306,7 @@
                 <option value="2048">Large (2048px)</option>
               </select>
             </div>
-          </div>
         </div>
-
-      </div>
     </div>
 
     <!-- Preview Panel -->
@@ -321,7 +315,6 @@
       <div class="preview-container">
         <div id="qr-preview">
           <div class="preview-placeholder"><span class="icon"><i data-lucide="qr-code"></i></span><span>Enter data to generate QR code</span></div>
-        </div>
       </div>
       <div class="format-selector">
         <button class="format-btn active" data-format="png">PNG</button>
@@ -343,10 +336,10 @@
        data-full-width-responsive="true"></ins>
   <script>window.initEasyAds ? window.initEasyAds() : (adsbygoogle = window.adsbygoogle || []).push({});</script>
 </div>
-      </div>
     </div>
-  </div>
 </div>
+
+  </div>
 </section>
 
 <!-- Content Expansion for SEO -->
@@ -702,7 +695,7 @@
 </script>
 
 <!-- Cookie Banner -->
-<div id="cookie-banner" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #111; color: white; padding: 1rem 2rem; border-radius: 100px; z-index: 9999; box-shadow: 0 10px 25px rgba(0,0,0,0.2); align-items: center; gap: 1.5rem; width: calc(100% - 40px); max-width: 600px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.875rem;">
+<div id="cookie-banner" style="display: none; position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); background: #111; color: white; padding: 1rem 2rem; border-radius: 100px; z-index: 9999; box-shadow: 0 10px 25px rgba(0,0,0,0.2); align-items: center; gap: 1.5rem; width: calc(100% - 80px); max-width: 600px; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 0.875rem;">
   <p style="margin: 0; display: flex; align-items: center; gap: 0.5rem;"><i data-lucide="cookie" style="width: 18px; height: 18px; color: #fbbf24;"></i> We use cookies to analyze site traffic. <a href="../privacy/index.html" style="color: #60a5fa; text-decoration: none;">Learn more</a></p>
   <button id="accept-cookies" style="background: white; color: black; border: none; padding: 0.5rem 1.25rem; border-radius: 100px; font-weight: 700; cursor: pointer; transition: transform 0.2s;">Got it</button>
 </div>
