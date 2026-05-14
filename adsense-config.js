@@ -14,14 +14,7 @@ const ADSENSE_CONFIG = {
   }
 };
 
-// Load AdSense Script Tag
-(function() {
-  const script = document.createElement('script');
-  script.async = true;
-  script.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CONFIG.publisherId}`;
-  script.crossOrigin = 'anonymous';
-  document.head.appendChild(script);
-})();
+// AdSense script is now manually loaded in <head> for better crawler verification.
 
 // Function to initialize ads on a page
 window.initEasyAds = function() {
